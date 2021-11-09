@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="携程网首页案例制作携程网链接：http:&#x2F;&#x2F;m.ctrip.com 方案：采取单独制作移动页面方案 目标：学习加深flex布局印象 步骤 1.首先搭建相关文件夹：  2.标签初始化 12&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;css&#x2F;normalize.css&quot;&gt;&lt;link rel&#x3D;&quot;stylesheet&amp;quo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="乌冬面的日常">
+<meta property="og:url" content="http://example.com/2021/11/06/%E6%90%BA%E7%A8%8B%E7%BD%91%E9%A6%96%E9%A1%B5%E6%A1%88%E4%BE%8B%E5%88%B6%E4%BD%9C/index.html">
+<meta property="og:site_name" content="乌冬面的日常">
+<meta property="og:description" content="携程网首页案例制作携程网链接：http:&#x2F;&#x2F;m.ctrip.com 方案：采取单独制作移动页面方案 目标：学习加深flex布局印象 步骤 1.首先搭建相关文件夹：  2.标签初始化 12&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;css&#x2F;normalize.css&quot;&gt;&lt;link rel&#x3D;&quot;stylesheet&amp;quo">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211105135734316.png">
+<meta property="og:image" content="c:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211105140037651.png">
+<meta property="article:published_time" content="2021-11-06T13:58:13.682Z">
+<meta property="article:modified_time" content="2021-11-06T13:58:13.683Z">
+<meta property="article:author" content="乌冬面">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211105135734316.png">
+
+<link rel="canonical" href="http://example.com/2021/11/06/%E6%90%BA%E7%A8%8B%E7%BD%91%E9%A6%96%E9%A1%B5%E6%A1%88%E4%BE%8B%E5%88%B6%E4%BD%9C/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | 乌冬面的日常</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">乌冬面的日常</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/06/%E6%90%BA%E7%A8%8B%E7%BD%91%E9%A6%96%E9%A1%B5%E6%A1%88%E4%BE%8B%E5%88%B6%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="乌冬面">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="乌冬面的日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-06 21:58:13" itemprop="dateCreated datePublished" datetime="2021-11-06T21:58:13+08:00">2021-11-06</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="携程网首页案例制作"><a href="#携程网首页案例制作" class="headerlink" title="携程网首页案例制作"></a>携程网首页案例制作</h2><p>携程网链接：<a target="_blank" rel="noopener" href="http://m.ctrip.com/">http://m.ctrip.com</a></p>
+<p>方案：采取单独制作移动页面方案</p>
+<p>目标：学习加深flex布局印象</p>
+<p>步骤</p>
+<p>1.首先搭建相关文件夹：</p>
+<p><img src="C:\Users\zxy\AppData\Roaming\Typora\typora-user-images\image-20211105135734316.png" alt="image-20211105135734316"></p>
+<p>2.标签初始化</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;css/normalize.css&quot;&gt;</span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;css/index.css&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>3.从网站中借鉴初始化样式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">移动端一般最小间距就是320px</span><br><span class="line">body &#123;</span><br><span class="line">  max-width: 540px;</span><br><span class="line">  min-width: 320px;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">  font: normal 14px/1.5 Tahoma,&quot;Lucida Grande&quot;,Verdana,&quot;Microsoft Yahei&quot;,STXihei,hei;</span><br><span class="line">  color: #000;</span><br><span class="line">  background: #f2f2f2;</span><br><span class="line">  overflow-x: hidden;</span><br><span class="line">  -webkit-tap-highlight-color: transparent;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="C:\Users\zxy\AppData\Roaming\Typora\typora-user-images\image-20211105140037651.png" alt="image-20211105140037651"></p>
+<p>searh-index模块：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">.search-index &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  /* 固定定位跟父级没有关系，他以屏幕为准 */</span><br><span class="line">  position: fixed;</span><br><span class="line">  top: 0;</span><br><span class="line">  left: 50%;</span><br><span class="line">  /* 固定盒子应该要有宽度</span><br><span class="line">  webkit是为了兼容性</span><br><span class="line">  盒子居中方式：</span><br><span class="line">  设置left和transform</span><br><span class="line">  */</span><br><span class="line">  -webkit-transform: translateX(-50%);</span><br><span class="line">  transform: translateX(-50%);</span><br><span class="line">  width: 100%;</span><br><span class="line">  min-width: 320px;</span><br><span class="line">  max-width: 540px;</span><br><span class="line">  height: 44px;</span><br><span class="line">  background-color: #f6f6f6;</span><br><span class="line">  border-top: 1px solid #ccc;</span><br><span class="line">  border-bottom: 1px solid #ccc;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">右边盒子固定死，左边用flex占满即可</span><br><span class="line">a为行内元素，所以在放图片是将其转化为行内块元素</span><br><span class="line">该图片通过精灵图缩放为2倍图的作坊</span><br><span class="line">链接要记得取消下划线</span><br><span class="line"></span><br><span class="line">左侧边框注意：</span><br><span class="line">文字内容垂直居中：此处行高较低才能实现居中，因为算上了盒子高度</span><br><span class="line">同时因为左侧放一个盒子，会把文字的盒子顶掉所以需要用absolute来，不占空间，记得子绝父相原则</span><br><span class="line">div &#123;</span><br><span class="line">  box-sizing: border-box;</span><br><span class="line">&#125;</span><br><span class="line">a &#123;</span><br><span class="line">  text-decoration: none;</span><br><span class="line">&#125;</span><br><span class="line">.user &#123;</span><br><span class="line">  width: 44px;</span><br><span class="line">  height: 44px;</span><br><span class="line">  /* background-color: purple; */</span><br><span class="line">  font-size: 12px;</span><br><span class="line">  text-align: center;</span><br><span class="line">  color: #2eaae0;</span><br><span class="line">&#125;</span><br><span class="line">.user::before &#123;</span><br><span class="line">  content: &quot;&quot;;</span><br><span class="line">  display: block;</span><br><span class="line">  width: 23px;</span><br><span class="line">  height: 23px;</span><br><span class="line">  background: url(../images/sprite.png) no-repeat -59px -194px;</span><br><span class="line">  background-size: 104px auto;</span><br><span class="line">  margin: 5px auto -2px;</span><br><span class="line">&#125;</span><br><span class="line">.search &#123;</span><br><span class="line">  flex: 1;</span><br><span class="line">  position: relative;</span><br><span class="line">  height: 26px;</span><br><span class="line">  line-height: 24px;</span><br><span class="line">  border: 1px solid #ccc;</span><br><span class="line">  font-size: 12px;</span><br><span class="line">  color: #666;</span><br><span class="line">  margin: 7px 10px;</span><br><span class="line">  padding-left: 25px;</span><br><span class="line">  border-radius: 5px;</span><br><span class="line">  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.search::before &#123;</span><br><span class="line">  content: &quot;&quot;;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 5px;</span><br><span class="line">  left: 5px;</span><br><span class="line">  width: 15px;</span><br><span class="line">  height: 15px;</span><br><span class="line">  background: url(../images/sprite.png) no-repeat -59px -279px;</span><br><span class="line">  background-size: 104px auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/* focus */</span><br><span class="line"></span><br><span class="line">.focus &#123;</span><br><span class="line">  padding-top: 44px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.focus img &#123;</span><br><span class="line">  width: 100%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>local-nav 局部导航栏部分：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">思路：</span><br><span class="line">将主轴设为y轴，把侧轴设为居中对齐</span><br><span class="line">title=&quot;景点·玩乐&quot; 鼠标放上即可显示</span><br><span class="line"> &lt;!-- 局部导航栏 --&gt;</span><br><span class="line">        &lt;ul class=&quot;local-nav&quot;&gt;</span><br><span class="line">            &lt;li&gt;</span><br><span class="line">                &lt;a href=&quot;#&quot; title=&quot;景点·玩乐&quot;&gt;</span><br><span class="line">                    &lt;span class=&quot;local-nav-icon-icon5&quot;&gt;&lt;/span&gt;</span><br><span class="line">                    &lt;span&gt;景点·玩乐&lt;/span&gt;</span><br><span class="line">                &lt;/a&gt;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">            &lt;li&gt;</span><br><span class="line">                &lt;a href=&quot;#&quot; title=&quot;景点·玩乐&quot;&gt;</span><br><span class="line">                    &lt;span class=&quot;local-nav-icon-icon2&quot;&gt;&lt;/span&gt;</span><br><span class="line">                    &lt;span&gt;景点·玩乐&lt;/span&gt;</span><br><span class="line">                &lt;/a&gt;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">            &lt;li&gt;</span><br><span class="line">                &lt;a href=&quot;#&quot; title=&quot;景点·玩乐&quot;&gt;</span><br><span class="line">                    &lt;span class=&quot;local-nav-icon-icon3&quot;&gt;&lt;/span&gt;</span><br><span class="line">                    &lt;span&gt;景点·玩乐&lt;/span&gt;</span><br><span class="line">                &lt;/a&gt;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">            &lt;li&gt;</span><br><span class="line">                &lt;a href=&quot;#&quot; title=&quot;景点·玩乐&quot;&gt;</span><br><span class="line">                    &lt;span class=&quot;local-nav-icon-icon4&quot;&gt;&lt;/span&gt;</span><br><span class="line">                    &lt;span&gt;景点·玩乐&lt;/span&gt;</span><br><span class="line">                &lt;/a&gt;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">            &lt;li&gt;</span><br><span class="line">                &lt;a href=&quot;#&quot; title=&quot;景点·玩乐&quot;&gt;</span><br><span class="line">                    &lt;span class=&quot;local-nav-icon-icon5&quot;&gt;&lt;/span&gt;</span><br><span class="line">                    &lt;span&gt;景点·玩乐&lt;/span&gt;</span><br><span class="line">                &lt;/a&gt;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">/* 局部导航栏 */</span><br><span class="line">ul &#123;</span><br><span class="line">  list-style: none;</span><br><span class="line">  margin: 0;</span><br><span class="line">  padding: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.local-nav &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  height: 64px;</span><br><span class="line">  margin: 3px 4px;</span><br><span class="line">  background-color: #fff;</span><br><span class="line">  border-radius: 8px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.local-nav li &#123;</span><br><span class="line">  flex: 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.local-nav a &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  flex-direction: column;</span><br><span class="line">  /* 侧轴居中对齐 因为是单行 */</span><br><span class="line">  align-items: center;</span><br><span class="line">  font-size: 12px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">li [class^=&quot;local-nav-icon&quot;] &#123;</span><br><span class="line">  width: 32px;</span><br><span class="line">  height: 32px;</span><br><span class="line">  background-color: pink;</span><br><span class="line">  margin-top: 8px;</span><br><span class="line">  background: url(../images/localnav_bg.png) no-repeat 0 0;</span><br><span class="line">  background-size: 32px auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.local-nav li .local-nav-icon-icon2 &#123;</span><br><span class="line">  background-position: 0 -32px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.local-nav li .local-nav-icon-icon3 &#123;</span><br><span class="line">  background-position: 0 -64px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.local-nav li .local-nav-icon-icon4 &#123;</span><br><span class="line">  background-position: 0 -96px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.local-nav li .local-nav-icon-icon5 &#123;</span><br><span class="line">  background-position: 0 -128px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>主导航栏 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">注意点：背景渐变必须换上私有前缀</span><br><span class="line"></span><br><span class="line">&lt;!-- 主导航栏 --&gt;</span><br><span class="line">            &lt;nav&gt;</span><br><span class="line">            &lt;div class=&quot;nav-common&quot;&gt;</span><br><span class="line">                &lt;div class=&quot;nav-items&quot;&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;海外酒店&lt;/a&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div class=&quot;nav-items&quot;&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;海外酒店&lt;/a&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;特价酒店&lt;/a&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div class=&quot;nav-items&quot;&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;海外酒店&lt;/a&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;特价酒店&lt;/a&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;nav-common&quot;&gt;</span><br><span class="line">                &lt;div class=&quot;nav-items&quot;&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;海外酒店&lt;/a&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div class=&quot;nav-items&quot;&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;海外酒店&lt;/a&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;特价酒店&lt;/a&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div class=&quot;nav-items&quot;&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;海外酒店&lt;/a&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;特价酒店&lt;/a&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;nav-common&quot;&gt;</span><br><span class="line">                &lt;div class=&quot;nav-items&quot;&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;海外酒店&lt;/a&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div class=&quot;nav-items&quot;&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;海外酒店&lt;/a&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;特价酒店&lt;/a&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div class=&quot;nav-items&quot;&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;海外酒店&lt;/a&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;特价酒店&lt;/a&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/nav&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">/* nav */</span><br><span class="line">注意点：可以用overflow来使border-radius显示出来</span><br><span class="line"></span><br><span class="line">nav &#123;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  border-radius: 8px;</span><br><span class="line">  margin: 0 4px 3px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.nav-common &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  height: 88px;</span><br><span class="line">  background-color: pink;</span><br><span class="line">&#125;</span><br><span class="line">.nav-common:nth-child(2) &#123;</span><br><span class="line">  margin: 3px 0;</span><br><span class="line">&#125;</span><br><span class="line">.nav-items &#123;</span><br><span class="line">  /* 不冲突的 */</span><br><span class="line">  flex: 1;</span><br><span class="line">  display: flex;</span><br><span class="line">  flex-direction: column;</span><br><span class="line">&#125;</span><br><span class="line">.nav-items a &#123;</span><br><span class="line">  flex: 1;</span><br><span class="line">  text-align: center;</span><br><span class="line">  line-height: 44px;</span><br><span class="line">  color: #fff;</span><br><span class="line">  font-size: 14px;</span><br><span class="line">  /* 文字阴影 */</span><br><span class="line">  text-shadow: 1px 1px rgba(0, 0, 0, 0.2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.nav-items a:nth-child(1) &#123;</span><br><span class="line">  border-bottom: 1px solid #fff;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.nav-items:nth-child(1) a &#123;</span><br><span class="line">  border: 0;</span><br><span class="line">  background: url(../images/hotel.png) no-repeat bottom center;</span><br><span class="line">  background-size: 121px auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* -n+2就是选择前面两个元素 */</span><br><span class="line"></span><br><span class="line">.nav-items:nth-child(-n + 2) &#123;</span><br><span class="line">  border-right: 1px solid #fff;</span><br><span class="line">&#125;</span><br><span class="line">.nav-common:nth-child(1) &#123;</span><br><span class="line">  background: -webkit-linear-gradient(left, #fa5a55, #fa994d);</span><br><span class="line">&#125;</span><br><span class="line">.nav-common:nth-child(2) &#123;</span><br><span class="line">  background: -webkit-linear-gradient(left, #4b90ed, #53bced);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.nav-common:nth-child(3) &#123;</span><br><span class="line">  background: -webkit-linear-gradient(left, #34c2a9, #6cd559);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>侧导航栏 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul class=&quot;subnav-entry&quot;&gt;</span><br><span class="line">    &lt;li&gt;</span><br><span class="line">        &lt;a href=&quot;#&quot;&gt;</span><br><span class="line">            &lt;span class=&quot;subnav-entry-icon&quot;&gt;&lt;/span&gt;</span><br><span class="line">            &lt;span&gt;电话费&lt;/span&gt;</span><br><span class="line">        &lt;/a&gt;</span><br><span class="line">    &lt;/li&gt;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    注意：如果用flex换行 flex-wrap 同时可以通过百分比来确定大小</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    /* subnav-entry */</span><br><span class="line">.subnav-entry &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  border-radius: 8px;</span><br><span class="line">  background-color: #fff;</span><br><span class="line">  margin: 0 4px;</span><br><span class="line">  flex-wrap: wrap;</span><br><span class="line">  padding: 5px 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.subnav-entry li &#123;</span><br><span class="line">  /* 里面的子盒子可以写 % 相对于父级来说的 */</span><br><span class="line">  flex: 20%;</span><br><span class="line">&#125;</span><br><span class="line">.subnav-entry a &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  flex-direction: column;</span><br><span class="line">  align-items: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.subnav-entry-icon &#123;</span><br><span class="line">  width: 28px;</span><br><span class="line">  height: 28px;</span><br><span class="line">  background-color: pink;</span><br><span class="line">  margin-top: 4px;</span><br><span class="line">  background: url(../images/subnav-bg.png) no-repeat;</span><br><span class="line">  background-size: 28px auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 销售模块 --&gt;</span><br><span class="line">注意点：text-indent: -999px;的使用</span><br><span class="line">三角的制作</span><br><span class="line"> border-top: 2px solid #fff;</span><br><span class="line">  border-right: 2px solid #fff;</span><br><span class="line">  transform: rotate(45deg);</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">&lt;div class=&quot;sales-box&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;sales-hd&quot;&gt;</span><br><span class="line">        &lt;h2&gt;热门活动&lt;/h2&gt;</span><br><span class="line">        &lt;a href=&quot;#&quot; class=&quot;more&quot;&gt;获取更多福利&lt;/a&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;sales-bd&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;row&quot;&gt;</span><br><span class="line">            &lt;a href=&quot;#&quot;&gt;</span><br><span class="line">                &lt;img src=&quot;uploads/pic1.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line">            &lt;/a&gt;</span><br><span class="line">            &lt;a href=&quot;#&quot;&gt;</span><br><span class="line">                &lt;img src=&quot;uploads/pic2.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line"></span><br><span class="line">            &lt;/a&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;row&quot;&gt;</span><br><span class="line">            &lt;a href=&quot;#&quot;&gt;</span><br><span class="line">                &lt;img src=&quot;uploads/pic3.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line">            &lt;/a&gt;</span><br><span class="line">            &lt;a href=&quot;#&quot;&gt;</span><br><span class="line">                &lt;img src=&quot;uploads/pic4.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line"></span><br><span class="line">            &lt;/a&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;row&quot;&gt;</span><br><span class="line">            &lt;a href=&quot;#&quot;&gt;</span><br><span class="line">                &lt;img src=&quot;uploads/pic5.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line">            &lt;/a&gt;</span><br><span class="line">            &lt;a href=&quot;#&quot;&gt;</span><br><span class="line">                &lt;img src=&quot;uploads/pic6.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line"></span><br><span class="line">            &lt;/a&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        /* sales-box */</span><br><span class="line">.sales-box &#123;</span><br><span class="line">  border-top: 1px solid #bbb;</span><br><span class="line">  background-color: #fff;</span><br><span class="line">  margin: 4px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.sales-hd &#123;</span><br><span class="line">  position: relative;</span><br><span class="line">  height: 44px;</span><br><span class="line">  border-bottom: 1px solid #ccc;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.sales-hd h2 &#123;</span><br><span class="line">  position: relative;</span><br><span class="line">  text-indent: -999px;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.sales-hd h2::after &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 5px;</span><br><span class="line">  left: 8px;</span><br><span class="line">  content: &quot;&quot;;</span><br><span class="line">  width: 79px;</span><br><span class="line">  height: 15px;</span><br><span class="line">  background: url(../images/hot.png) no-repeat 0 -20px;</span><br><span class="line">  background-size: 79px auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.more &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  right: 5px;</span><br><span class="line">  top: 0px;</span><br><span class="line">  top: 0px;</span><br><span class="line">  background: -webkit-linear-gradient(left, #ff506c, #ff6bc6);</span><br><span class="line">  border-radius: 15px;</span><br><span class="line">  padding: 3px 20px 3px 10px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.more::after &#123;</span><br><span class="line">  content: &quot;&quot;;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 9px;</span><br><span class="line">  right: 9px;</span><br><span class="line">  width: 7px;</span><br><span class="line">  height: 7px;</span><br><span class="line">  border-top: 2px solid #fff;</span><br><span class="line">  border-right: 2px solid #fff;</span><br><span class="line">  transform: rotate(45deg);</span><br><span class="line">&#125;</span><br><span class="line">.row &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">&#125;</span><br><span class="line">.row a &#123;</span><br><span class="line">  flex: 1;</span><br><span class="line">  border-bottom: 1px solid #eee;</span><br><span class="line">&#125;</span><br><span class="line">.row a:nth-child(1) &#123;</span><br><span class="line">  border-right: 1px solid #eee;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.row a img &#123;</span><br><span class="line">  width: 100%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/10/29/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E9%A1%B9%E7%9B%AE/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%BA%E7%A8%8B%E7%BD%91%E9%A6%96%E9%A1%B5%E6%A1%88%E4%BE%8B%E5%88%B6%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">携程网首页案例制作</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="乌冬面"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">乌冬面</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">乌冬面</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

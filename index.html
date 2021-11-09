@@ -145,6 +145,254 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/06/%E6%90%BA%E7%A8%8B%E7%BD%91%E9%A6%96%E9%A1%B5%E6%A1%88%E4%BE%8B%E5%88%B6%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="乌冬面">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="乌冬面的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/06/%E6%90%BA%E7%A8%8B%E7%BD%91%E9%A6%96%E9%A1%B5%E6%A1%88%E4%BE%8B%E5%88%B6%E4%BD%9C/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-06 21:58:13" itemprop="dateCreated datePublished" datetime="2021-11-06T21:58:13+08:00">2021-11-06</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="携程网首页案例制作"><a href="#携程网首页案例制作" class="headerlink" title="携程网首页案例制作"></a>携程网首页案例制作</h2><p>携程网链接：<a target="_blank" rel="noopener" href="http://m.ctrip.com/">http://m.ctrip.com</a></p>
+<p>方案：采取单独制作移动页面方案</p>
+<p>目标：学习加深flex布局印象</p>
+<p>步骤</p>
+<p>1.首先搭建相关文件夹：</p>
+<p><img src="C:\Users\zxy\AppData\Roaming\Typora\typora-user-images\image-20211105135734316.png" alt="image-20211105135734316"></p>
+<p>2.标签初始化</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;css/normalize.css&quot;&gt;</span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;css/index.css&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>3.从网站中借鉴初始化样式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">移动端一般最小间距就是320px</span><br><span class="line">body &#123;</span><br><span class="line">  max-width: 540px;</span><br><span class="line">  min-width: 320px;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">  font: normal 14px/1.5 Tahoma,&quot;Lucida Grande&quot;,Verdana,&quot;Microsoft Yahei&quot;,STXihei,hei;</span><br><span class="line">  color: #000;</span><br><span class="line">  background: #f2f2f2;</span><br><span class="line">  overflow-x: hidden;</span><br><span class="line">  -webkit-tap-highlight-color: transparent;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="C:\Users\zxy\AppData\Roaming\Typora\typora-user-images\image-20211105140037651.png" alt="image-20211105140037651"></p>
+<p>searh-index模块：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">.search-index &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  /* 固定定位跟父级没有关系，他以屏幕为准 */</span><br><span class="line">  position: fixed;</span><br><span class="line">  top: 0;</span><br><span class="line">  left: 50%;</span><br><span class="line">  /* 固定盒子应该要有宽度</span><br><span class="line">  webkit是为了兼容性</span><br><span class="line">  盒子居中方式：</span><br><span class="line">  设置left和transform</span><br><span class="line">  */</span><br><span class="line">  -webkit-transform: translateX(-50%);</span><br><span class="line">  transform: translateX(-50%);</span><br><span class="line">  width: 100%;</span><br><span class="line">  min-width: 320px;</span><br><span class="line">  max-width: 540px;</span><br><span class="line">  height: 44px;</span><br><span class="line">  background-color: #f6f6f6;</span><br><span class="line">  border-top: 1px solid #ccc;</span><br><span class="line">  border-bottom: 1px solid #ccc;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">右边盒子固定死，左边用flex占满即可</span><br><span class="line">a为行内元素，所以在放图片是将其转化为行内块元素</span><br><span class="line">该图片通过精灵图缩放为2倍图的作坊</span><br><span class="line">链接要记得取消下划线</span><br><span class="line"></span><br><span class="line">左侧边框注意：</span><br><span class="line">文字内容垂直居中：此处行高较低才能实现居中，因为算上了盒子高度</span><br><span class="line">同时因为左侧放一个盒子，会把文字的盒子顶掉所以需要用absolute来，不占空间，记得子绝父相原则</span><br><span class="line">div &#123;</span><br><span class="line">  box-sizing: border-box;</span><br><span class="line">&#125;</span><br><span class="line">a &#123;</span><br><span class="line">  text-decoration: none;</span><br><span class="line">&#125;</span><br><span class="line">.user &#123;</span><br><span class="line">  width: 44px;</span><br><span class="line">  height: 44px;</span><br><span class="line">  /* background-color: purple; */</span><br><span class="line">  font-size: 12px;</span><br><span class="line">  text-align: center;</span><br><span class="line">  color: #2eaae0;</span><br><span class="line">&#125;</span><br><span class="line">.user::before &#123;</span><br><span class="line">  content: &quot;&quot;;</span><br><span class="line">  display: block;</span><br><span class="line">  width: 23px;</span><br><span class="line">  height: 23px;</span><br><span class="line">  background: url(../images/sprite.png) no-repeat -59px -194px;</span><br><span class="line">  background-size: 104px auto;</span><br><span class="line">  margin: 5px auto -2px;</span><br><span class="line">&#125;</span><br><span class="line">.search &#123;</span><br><span class="line">  flex: 1;</span><br><span class="line">  position: relative;</span><br><span class="line">  height: 26px;</span><br><span class="line">  line-height: 24px;</span><br><span class="line">  border: 1px solid #ccc;</span><br><span class="line">  font-size: 12px;</span><br><span class="line">  color: #666;</span><br><span class="line">  margin: 7px 10px;</span><br><span class="line">  padding-left: 25px;</span><br><span class="line">  border-radius: 5px;</span><br><span class="line">  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.search::before &#123;</span><br><span class="line">  content: &quot;&quot;;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 5px;</span><br><span class="line">  left: 5px;</span><br><span class="line">  width: 15px;</span><br><span class="line">  height: 15px;</span><br><span class="line">  background: url(../images/sprite.png) no-repeat -59px -279px;</span><br><span class="line">  background-size: 104px auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/* focus */</span><br><span class="line"></span><br><span class="line">.focus &#123;</span><br><span class="line">  padding-top: 44px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.focus img &#123;</span><br><span class="line">  width: 100%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>local-nav 局部导航栏部分：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">思路：</span><br><span class="line">将主轴设为y轴，把侧轴设为居中对齐</span><br><span class="line">title=&quot;景点·玩乐&quot; 鼠标放上即可显示</span><br><span class="line"> &lt;!-- 局部导航栏 --&gt;</span><br><span class="line">        &lt;ul class=&quot;local-nav&quot;&gt;</span><br><span class="line">            &lt;li&gt;</span><br><span class="line">                &lt;a href=&quot;#&quot; title=&quot;景点·玩乐&quot;&gt;</span><br><span class="line">                    &lt;span class=&quot;local-nav-icon-icon5&quot;&gt;&lt;/span&gt;</span><br><span class="line">                    &lt;span&gt;景点·玩乐&lt;/span&gt;</span><br><span class="line">                &lt;/a&gt;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">            &lt;li&gt;</span><br><span class="line">                &lt;a href=&quot;#&quot; title=&quot;景点·玩乐&quot;&gt;</span><br><span class="line">                    &lt;span class=&quot;local-nav-icon-icon2&quot;&gt;&lt;/span&gt;</span><br><span class="line">                    &lt;span&gt;景点·玩乐&lt;/span&gt;</span><br><span class="line">                &lt;/a&gt;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">            &lt;li&gt;</span><br><span class="line">                &lt;a href=&quot;#&quot; title=&quot;景点·玩乐&quot;&gt;</span><br><span class="line">                    &lt;span class=&quot;local-nav-icon-icon3&quot;&gt;&lt;/span&gt;</span><br><span class="line">                    &lt;span&gt;景点·玩乐&lt;/span&gt;</span><br><span class="line">                &lt;/a&gt;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">            &lt;li&gt;</span><br><span class="line">                &lt;a href=&quot;#&quot; title=&quot;景点·玩乐&quot;&gt;</span><br><span class="line">                    &lt;span class=&quot;local-nav-icon-icon4&quot;&gt;&lt;/span&gt;</span><br><span class="line">                    &lt;span&gt;景点·玩乐&lt;/span&gt;</span><br><span class="line">                &lt;/a&gt;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">            &lt;li&gt;</span><br><span class="line">                &lt;a href=&quot;#&quot; title=&quot;景点·玩乐&quot;&gt;</span><br><span class="line">                    &lt;span class=&quot;local-nav-icon-icon5&quot;&gt;&lt;/span&gt;</span><br><span class="line">                    &lt;span&gt;景点·玩乐&lt;/span&gt;</span><br><span class="line">                &lt;/a&gt;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">/* 局部导航栏 */</span><br><span class="line">ul &#123;</span><br><span class="line">  list-style: none;</span><br><span class="line">  margin: 0;</span><br><span class="line">  padding: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.local-nav &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  height: 64px;</span><br><span class="line">  margin: 3px 4px;</span><br><span class="line">  background-color: #fff;</span><br><span class="line">  border-radius: 8px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.local-nav li &#123;</span><br><span class="line">  flex: 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.local-nav a &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  flex-direction: column;</span><br><span class="line">  /* 侧轴居中对齐 因为是单行 */</span><br><span class="line">  align-items: center;</span><br><span class="line">  font-size: 12px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">li [class^=&quot;local-nav-icon&quot;] &#123;</span><br><span class="line">  width: 32px;</span><br><span class="line">  height: 32px;</span><br><span class="line">  background-color: pink;</span><br><span class="line">  margin-top: 8px;</span><br><span class="line">  background: url(../images/localnav_bg.png) no-repeat 0 0;</span><br><span class="line">  background-size: 32px auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.local-nav li .local-nav-icon-icon2 &#123;</span><br><span class="line">  background-position: 0 -32px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.local-nav li .local-nav-icon-icon3 &#123;</span><br><span class="line">  background-position: 0 -64px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.local-nav li .local-nav-icon-icon4 &#123;</span><br><span class="line">  background-position: 0 -96px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.local-nav li .local-nav-icon-icon5 &#123;</span><br><span class="line">  background-position: 0 -128px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>主导航栏 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">注意点：背景渐变必须换上私有前缀</span><br><span class="line"></span><br><span class="line">&lt;!-- 主导航栏 --&gt;</span><br><span class="line">            &lt;nav&gt;</span><br><span class="line">            &lt;div class=&quot;nav-common&quot;&gt;</span><br><span class="line">                &lt;div class=&quot;nav-items&quot;&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;海外酒店&lt;/a&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div class=&quot;nav-items&quot;&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;海外酒店&lt;/a&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;特价酒店&lt;/a&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div class=&quot;nav-items&quot;&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;海外酒店&lt;/a&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;特价酒店&lt;/a&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;nav-common&quot;&gt;</span><br><span class="line">                &lt;div class=&quot;nav-items&quot;&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;海外酒店&lt;/a&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div class=&quot;nav-items&quot;&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;海外酒店&lt;/a&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;特价酒店&lt;/a&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div class=&quot;nav-items&quot;&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;海外酒店&lt;/a&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;特价酒店&lt;/a&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;nav-common&quot;&gt;</span><br><span class="line">                &lt;div class=&quot;nav-items&quot;&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;海外酒店&lt;/a&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div class=&quot;nav-items&quot;&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;海外酒店&lt;/a&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;特价酒店&lt;/a&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div class=&quot;nav-items&quot;&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;海外酒店&lt;/a&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot;&gt;特价酒店&lt;/a&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/nav&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">/* nav */</span><br><span class="line">注意点：可以用overflow来使border-radius显示出来</span><br><span class="line"></span><br><span class="line">nav &#123;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  border-radius: 8px;</span><br><span class="line">  margin: 0 4px 3px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.nav-common &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  height: 88px;</span><br><span class="line">  background-color: pink;</span><br><span class="line">&#125;</span><br><span class="line">.nav-common:nth-child(2) &#123;</span><br><span class="line">  margin: 3px 0;</span><br><span class="line">&#125;</span><br><span class="line">.nav-items &#123;</span><br><span class="line">  /* 不冲突的 */</span><br><span class="line">  flex: 1;</span><br><span class="line">  display: flex;</span><br><span class="line">  flex-direction: column;</span><br><span class="line">&#125;</span><br><span class="line">.nav-items a &#123;</span><br><span class="line">  flex: 1;</span><br><span class="line">  text-align: center;</span><br><span class="line">  line-height: 44px;</span><br><span class="line">  color: #fff;</span><br><span class="line">  font-size: 14px;</span><br><span class="line">  /* 文字阴影 */</span><br><span class="line">  text-shadow: 1px 1px rgba(0, 0, 0, 0.2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.nav-items a:nth-child(1) &#123;</span><br><span class="line">  border-bottom: 1px solid #fff;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.nav-items:nth-child(1) a &#123;</span><br><span class="line">  border: 0;</span><br><span class="line">  background: url(../images/hotel.png) no-repeat bottom center;</span><br><span class="line">  background-size: 121px auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* -n+2就是选择前面两个元素 */</span><br><span class="line"></span><br><span class="line">.nav-items:nth-child(-n + 2) &#123;</span><br><span class="line">  border-right: 1px solid #fff;</span><br><span class="line">&#125;</span><br><span class="line">.nav-common:nth-child(1) &#123;</span><br><span class="line">  background: -webkit-linear-gradient(left, #fa5a55, #fa994d);</span><br><span class="line">&#125;</span><br><span class="line">.nav-common:nth-child(2) &#123;</span><br><span class="line">  background: -webkit-linear-gradient(left, #4b90ed, #53bced);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.nav-common:nth-child(3) &#123;</span><br><span class="line">  background: -webkit-linear-gradient(left, #34c2a9, #6cd559);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>侧导航栏 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul class=&quot;subnav-entry&quot;&gt;</span><br><span class="line">    &lt;li&gt;</span><br><span class="line">        &lt;a href=&quot;#&quot;&gt;</span><br><span class="line">            &lt;span class=&quot;subnav-entry-icon&quot;&gt;&lt;/span&gt;</span><br><span class="line">            &lt;span&gt;电话费&lt;/span&gt;</span><br><span class="line">        &lt;/a&gt;</span><br><span class="line">    &lt;/li&gt;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    注意：如果用flex换行 flex-wrap 同时可以通过百分比来确定大小</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    /* subnav-entry */</span><br><span class="line">.subnav-entry &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  border-radius: 8px;</span><br><span class="line">  background-color: #fff;</span><br><span class="line">  margin: 0 4px;</span><br><span class="line">  flex-wrap: wrap;</span><br><span class="line">  padding: 5px 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.subnav-entry li &#123;</span><br><span class="line">  /* 里面的子盒子可以写 % 相对于父级来说的 */</span><br><span class="line">  flex: 20%;</span><br><span class="line">&#125;</span><br><span class="line">.subnav-entry a &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  flex-direction: column;</span><br><span class="line">  align-items: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.subnav-entry-icon &#123;</span><br><span class="line">  width: 28px;</span><br><span class="line">  height: 28px;</span><br><span class="line">  background-color: pink;</span><br><span class="line">  margin-top: 4px;</span><br><span class="line">  background: url(../images/subnav-bg.png) no-repeat;</span><br><span class="line">  background-size: 28px auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 销售模块 --&gt;</span><br><span class="line">注意点：text-indent: -999px;的使用</span><br><span class="line">三角的制作</span><br><span class="line"> border-top: 2px solid #fff;</span><br><span class="line">  border-right: 2px solid #fff;</span><br><span class="line">  transform: rotate(45deg);</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">&lt;div class=&quot;sales-box&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;sales-hd&quot;&gt;</span><br><span class="line">        &lt;h2&gt;热门活动&lt;/h2&gt;</span><br><span class="line">        &lt;a href=&quot;#&quot; class=&quot;more&quot;&gt;获取更多福利&lt;/a&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;sales-bd&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;row&quot;&gt;</span><br><span class="line">            &lt;a href=&quot;#&quot;&gt;</span><br><span class="line">                &lt;img src=&quot;uploads/pic1.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line">            &lt;/a&gt;</span><br><span class="line">            &lt;a href=&quot;#&quot;&gt;</span><br><span class="line">                &lt;img src=&quot;uploads/pic2.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line"></span><br><span class="line">            &lt;/a&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;row&quot;&gt;</span><br><span class="line">            &lt;a href=&quot;#&quot;&gt;</span><br><span class="line">                &lt;img src=&quot;uploads/pic3.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line">            &lt;/a&gt;</span><br><span class="line">            &lt;a href=&quot;#&quot;&gt;</span><br><span class="line">                &lt;img src=&quot;uploads/pic4.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line"></span><br><span class="line">            &lt;/a&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;row&quot;&gt;</span><br><span class="line">            &lt;a href=&quot;#&quot;&gt;</span><br><span class="line">                &lt;img src=&quot;uploads/pic5.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line">            &lt;/a&gt;</span><br><span class="line">            &lt;a href=&quot;#&quot;&gt;</span><br><span class="line">                &lt;img src=&quot;uploads/pic6.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line"></span><br><span class="line">            &lt;/a&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        /* sales-box */</span><br><span class="line">.sales-box &#123;</span><br><span class="line">  border-top: 1px solid #bbb;</span><br><span class="line">  background-color: #fff;</span><br><span class="line">  margin: 4px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.sales-hd &#123;</span><br><span class="line">  position: relative;</span><br><span class="line">  height: 44px;</span><br><span class="line">  border-bottom: 1px solid #ccc;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.sales-hd h2 &#123;</span><br><span class="line">  position: relative;</span><br><span class="line">  text-indent: -999px;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.sales-hd h2::after &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 5px;</span><br><span class="line">  left: 8px;</span><br><span class="line">  content: &quot;&quot;;</span><br><span class="line">  width: 79px;</span><br><span class="line">  height: 15px;</span><br><span class="line">  background: url(../images/hot.png) no-repeat 0 -20px;</span><br><span class="line">  background-size: 79px auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.more &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  right: 5px;</span><br><span class="line">  top: 0px;</span><br><span class="line">  top: 0px;</span><br><span class="line">  background: -webkit-linear-gradient(left, #ff506c, #ff6bc6);</span><br><span class="line">  border-radius: 15px;</span><br><span class="line">  padding: 3px 20px 3px 10px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.more::after &#123;</span><br><span class="line">  content: &quot;&quot;;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 9px;</span><br><span class="line">  right: 9px;</span><br><span class="line">  width: 7px;</span><br><span class="line">  height: 7px;</span><br><span class="line">  border-top: 2px solid #fff;</span><br><span class="line">  border-right: 2px solid #fff;</span><br><span class="line">  transform: rotate(45deg);</span><br><span class="line">&#125;</span><br><span class="line">.row &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">&#125;</span><br><span class="line">.row a &#123;</span><br><span class="line">  flex: 1;</span><br><span class="line">  border-bottom: 1px solid #eee;</span><br><span class="line">&#125;</span><br><span class="line">.row a:nth-child(1) &#123;</span><br><span class="line">  border-right: 1px solid #eee;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.row a img &#123;</span><br><span class="line">  width: 100%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/29/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E9%A1%B9%E7%9B%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="乌冬面">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="乌冬面的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/29/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E9%A1%B9%E7%9B%AE/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-10-29 19:39:59" itemprop="dateCreated datePublished" datetime="2021-10-29T19:39:59+08:00">2021-10-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-30 22:29:22" itemprop="dateModified" datetime="2021-10-30T22:29:22+08:00">2021-10-30</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="数据可视化项目："><a href="#数据可视化项目：" class="headerlink" title="数据可视化项目："></a>数据可视化项目：</h2><p>数据可视化：数字变图像</p>
+<p>常见的数据可视化：D3.JS  Echarts.js Highcharts.js</p>
+<p>项目技术：</p>
+<ol>
+<li>HTML5 + CSS3 布局</li>
+<li>CSS3 动画、渐变</li>
+<li>jQuery库+ 原生 JavaScript</li>
+<li>flex布局 和 rem 适配方案</li>
+<li>图片边框 border-image</li>
+<li>ES6 模板字符</li>
+<li>ECharts 可视化库等等</li>
+</ol>
+<h4 id="项目需求："><a href="#项目需求：" class="headerlink" title="项目需求："></a>项目需求：</h4><p>1.设计稿1920px 需要在pc段适配：宽度在1024-1920之间的页面元素高自适应</p>
+<p>解决方案：flexible.js  +rem 单位+flex布局</p>
+<h4 id="flex：知识查漏补缺"><a href="#flex：知识查漏补缺" class="headerlink" title="flex：知识查漏补缺"></a>flex：知识查漏补缺</h4><p>flex布局</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/29/%E6%AF%8F%E6%97%A5%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="乌冬面">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="乌冬面的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/29/%E6%AF%8F%E6%97%A5%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-10-29 19:19:54" itemprop="dateCreated datePublished" datetime="2021-10-29T19:19:54+08:00">2021-10-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-30 22:29:28" itemprop="dateModified" datetime="2021-10-30T22:29:28+08:00">2021-10-30</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>什么是超文本传输？</p>
+<p><strong>HTTP 是一个在计算机世界里专门在「两点」之间「传输」文字、图片、音频、视频等「超文本」数据的「约定和规范」。</strong></p>
+<p>简述一下web浏览器中输入url的过程</p>
+<p>http的常见码：</p>
+<p>1,2,3,4,5开头分别代表什么</p>
+<p>http 1.1的优点：</p>
+<p>http https的区别</p>
+<p>http1.1解决了http1.0的哪一些问题，有什么缺点？</p>
+<p>http2的优缺点</p>
+<p>http3的优点</p>
+<p>session，token cookie是什么分别有什么区别</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/11/%E5%9B%9E%E9%A1%BE%E6%80%9D%E8%B7%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -168,10 +416,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-10-11 19:30:54 / 修改时间：23:28:32" itemprop="dateCreated datePublished" datetime="2021-10-11T19:30:54+08:00">2021-10-11</time>
+              <time title="创建时间：2021-10-11 19:30:54" itemprop="dateCreated datePublished" datetime="2021-10-11T19:30:54+08:00">2021-10-11</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-19 12:39:47" itemprop="dateModified" datetime="2021-10-19T12:39:47+08:00">2021-10-19</time>
+              </span>
 
           
 
@@ -186,12 +440,13 @@
       
           <p>问题：</p>
 <p>from js理解</p>
-<p>js中的基本类型有哪一些？</p>
-<p>闭包中的变量是保存在堆还是栈内？</p>
-<p>实践角度：闭包是什么？</p>
+<p>js中的基本类型有哪一些？6种，undefined,null.string.boolean,number,symbol</p>
+<p>闭包中的变量是保存在堆还是栈内？ 堆</p>
+<p>实践角度：闭包是什么？当上下文删除的时候他还存在，可以调用</p>
 <p>如何实现promiseall</p>
 <p>promiseall有什么特点</p>
 <p>[‘c’, ‘a’, ‘z’, ‘a’, ‘x’, ‘a’, ‘x’, ‘c’, ‘b’] 要求去除数组中重复的元素：思路</p>
+<p>indexof 来计算</p>
 
       
     </div>
@@ -326,7 +581,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-11 23:30:50" itemprop="dateModified" datetime="2021-10-11T23:30:50+08:00">2021-10-11</time>
+                <time title="修改时间：2021-11-09 10:40:38" itemprop="dateModified" datetime="2021-11-09T10:40:38+08:00">2021-11-09</time>
               </span>
 
           
@@ -346,7 +601,349 @@
 <p>2.播放声音</p>
 <p>3.改变样式</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/soyaine/JavaScript30/tree/master/01%20-%20JavaScript%20Drum%20Kit">指南</a></p>
+<h4 id="day2"><a href="#day2" class="headerlink" title="day2"></a>day2</h4><p>关键要点：</p>
+<ol>
+<li>表盘上指针的样式：旋转的效果</li>
+<li>获取实时的时间</li>
+<li>每一秒改变一次指针状态</li>
+</ol>
+<p>css部分：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">transform-origin:100%  旋转轴点为两端顶点</span><br><span class="line">transition：all .05s;  设置过渡时间</span><br><span class="line">transition-timing-function：ease-in-out 规定过渡效果的速度曲线  </span><br></pre></td></tr></table></figure>
 
+<p>js 部分：</p>
+<p>1.用定时器来操作时分秒的状态进行移动</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setInterval(setDate,1000);每秒更新状态</span><br></pre></td></tr></table></figure>
+
+<p>2.setDate方法需要达成的效果：</p>
+<p>获取当前的时分秒，计算当前时分秒所需要处于的角度</p>
+<p>注意时分秒的角度，时要考虑到分，秒。分要考虑到 秒</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">const secondHand=document.querySelector(&#x27;.second-hand&#x27;);</span><br><span class="line">     const minHand=document.querySelector(&#x27;.min-hand&#x27;);</span><br><span class="line">     const hour=document.querySelector(&#x27;.hour-hand&#x27;);</span><br><span class="line">    function setDate()&#123;</span><br><span class="line">      const now =new Date();</span><br><span class="line">      const seconds=now.getSeconds();</span><br><span class="line">      const secondsDegrees=(seconds*6)+90;</span><br><span class="line">      secondHand.style.transform=`rotate($&#123;secondsDegrees&#125;deg)`;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      const mins=now.getMinutes();</span><br><span class="line">      const minsDegrees=(mins*6)+90+(seconds*6/60);</span><br><span class="line">      minHand.style.transform=`rotate($&#123;minsDegrees&#125;deg)`;</span><br><span class="line"></span><br><span class="line">      const hours=now.getHours();</span><br><span class="line">      const hoursDegrees=hours*30+(mins*30/60)+90+(seconds*30/3600);</span><br><span class="line">      minHand.style.transform=`rotate($&#123;hoursDegrees&#125;deg)`;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="day03-CSS-Variable"><a href="#day03-CSS-Variable" class="headerlink" title="day03 CSS Variable"></a>day03 CSS Variable</h4><p>css部分：filter：blur() 模糊  padding background </p>
+<p>js部分：</p>
+<p>需要控制，就获取三个控件</p>
+<p><img src="C:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211030144242650.png" alt="image-20211030144242650"></p>
+<p>方法思路：获取到控件发生变化，通过if语句判断是哪一个控件发生变化并同步数据</p>
+<p>缺点：如果存在许多控件，会变得异常繁琐</p>
+<p>解决方式：用css variable  缺点 ：id edge 目前都还不支持</p>
+<p>命名写法：–变量名  </p>
+<p>通过： :root伪类来实现，此匹配的是文档的根元素既html标签</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">:root&#123;</span><br><span class="line">      --spacing:5px;</span><br><span class="line">      --blur: 2px;</span><br><span class="line">      --base:#ffc600;</span><br><span class="line">    &#125;</span><br><span class="line">    img&#123;</span><br><span class="line">      padding: var(--spacing);</span><br><span class="line">      filter:blur(var(--blur));</span><br><span class="line">     background: var(--base);</span><br><span class="line">    &#125;</span><br><span class="line">     .h1&#123;</span><br><span class="line">      color: var(--base);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>难点：</p>
+<p><strong>如何处理参数值（一个有 px 、另一个没有）</strong></p>
+<p>运用 <code>dataset</code> 储存后缀，有 px 后缀的标签中设置 <code>&lt;input data-sizing: px&gt;</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;range&quot; name=&quot;blur&quot; min=&quot;0&quot; max=&quot;25&quot; value=&quot;10&quot; data-sizing=&quot;px&quot;&gt;</span><br><span class="line">&lt;input type=&quot;color&quot; name=&quot;base&quot; value=&quot;#8aa8af&quot;&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>JS 中通过 <code>dataset.sizing</code> 来获取后缀值：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const suffix = this.dataset.sizing || &#x27;&#x27;; </span><br></pre></td></tr></table></figure>
+
+<p>此时 suffix 获取到的值，针对颜色为空，而针对长度类的则为 ‘px’。</p>
+<ol>
+<li><p><strong>如何用 JavaScript 改变 CSS 属性值？</strong></p>
+<p>在 JavaScript 中 <code>document.documentElement</code> 即代表文档根元素。所以要改变全局的 CSS 变量，可以这样写：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.documentElement.style.setProperty(&#x27;--base&#x27;, &#x27;#fff&#x27;);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="day4-和day7一起总结"><a href="#day4-和day7一起总结" class="headerlink" title="day4 和day7一起总结"></a>day4 和day7一起总结</h4><h4 id="day5-Flex-Panel-Gallery-https-github-com-soyaine-JavaScript30-tree-master-05-Flex-Panel-Gallery"><a href="#day5-Flex-Panel-Gallery-https-github-com-soyaine-JavaScript30-tree-master-05-Flex-Panel-Gallery" class="headerlink" title="day5 [- Flex Panel Gallery](https://github.com/soyaine/JavaScript30/tree/master/05 - Flex Panel Gallery)"></a>day5 [- Flex Panel Gallery](<a target="_blank" rel="noopener" href="https://github.com/soyaine/JavaScript30/tree/master/05">https://github.com/soyaine/JavaScript30/tree/master/05</a> - Flex Panel Gallery)</h4><p>实现可伸缩的图片墙</p>
+<p>文档dom结构：以 <code>.panels</code> 为父 <code>div</code> 之下，有 5 个类名为 <code>.panel</code> 的 <code>div</code>，这 5 个各含有 3 个子 <code>p</code> 标签。而相应的 CSS 样式中，动画时间等特性已经设定好，只需要完成不同状态下的页面布局以及事件监听即可。</p>
+<p>涉及特性：</p>
+<ul>
+<li>display: flex<ul>
+<li>flex-direction</li>
+<li>justify-content</li>
+<li>align-items</li>
+</ul>
+</li>
+<li>transform: translateX/translateY</li>
+<li>element.classList.toggle()</li>
+<li>transitionend 事件</li>
+</ul>
+<p>css中思路：</p>
+<ol>
+<li><p>将 <code>.panels</code> 设置为 <code>display:flex</code></p>
+</li>
+<li><p>设定每个子 panel 的 <code>flex</code> 值为 1</p>
+</li>
+<li><p>针对每个子 panel，设为 <code>display:flex</code>，设置其 flex 主轴方向</p>
+</li>
+<li><p>控制.panel的子元素<p>中的文字垂直、水平居中（单独看每个 panel，其中的文字也可以用 flex 的思路来使其三等分后居中）</p>
+<ol>
+<li>设置为 <code>display:flex</code></li>
+<li>设置 <code>flex</code> 值</li>
+<li>设置其子元素的布局方式：垂直水平居中（沿主轴、侧轴居中）</li>
+</ol>
+</li>
+<li><p>设定点击图片后文字移动的样式</p>
+</li>
+<li><p>设定点击图片展开后的图片的 <code>flex</code> 值</p>
+<p>JS部分：</p>
+</li>
+<li><p>获取所有类名为 <code>panel</code> 的元素</p>
+</li>
+<li><p>为其添加 <code>click</code> 事件监听，编写触发事件调用的函数（给触发的 DOM 元素添加/去掉样式，实现拉伸/压缩的效果）</p>
+</li>
+<li><p>为其添加 <code>transitionend</code> 事件监听，编写调用的函数（添加/去掉样式，实现文字的飞入/飞出效果）</p>
+</li>
+</ol>
+<h4 id="day-6-Type-Ahead-实时搜索列表"><a href="#day-6-Type-Ahead-实时搜索列表" class="headerlink" title="day 6  Type Ahead 实时搜索列表"></a>day 6  Type <a target="_blank" rel="noopener" href="https://github.com/soyaine/JavaScript30/blob/master/06%20-%20Type%20Ahead/README.md">Ahead</a> 实时搜索列表</h4><p>实现效果：在输入框中输入信息会快速匹配，并且展示</p>
+<p>步骤：</p>
+<p>1.获取数据</p>
+<p>2.过滤数据</p>
+<p>3.展示数据</p>
+<p>详细步骤和要点：</p>
+<p>1.获取数据</p>
+<p><code>fetch</code> 规范与 <code>jQuery.ajax()</code> 主要有三种方式的不同：</p>
+<ul>
+<li> 返回值是一个promise对象，请求成功，则对象包含了response ，只是一个http响应，当接收到一个代表错误的 HTTP 状态码时，从 <code>fetch()</code> 返回的 Promise <strong>不会被标记为 reject，</strong> 即使响应的 HTTP 状态码是 404 或 500。相反，它会将 Promise 状态标记为 resolve （但是会将 resolve 的返回值的 <code>ok</code> 属性设置为 false ），仅当网络故障时或请求被阻止时，才会标记为 reject。</li>
+<li><code>fetch()</code> <strong>可以不会接受跨域 cookies；</strong>你也可以不能使用 <code>fetch()</code> 建立起跨域会话。其他网站的 <code>Set-Cookie</code> 头部字段将会被无视。</li>
+<li><code>fetch</code> <strong>不会发送 cookies</strong>。除非你使用了<em>credentials</em> 的<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters">初始化选项</a>。（自 2017 年 8 月 25 日以后，默认的 credentials 政策变更为 <code>same-origin</code>。Firefox 也在 61.0b13 版本中进行了修改）</li>
+</ul>
+<p>步骤：</p>
+<ul>
+<li><p>声明一个空数组，用来存放解析Jason后的数据</p>
+</li>
+<li><p>运用fetch（）发送http请求</p>
+<p>1.获取返回的promise对象</p>
+<p>2.解析json数据</p>
+<p>3.存入数组</p>
+<p>知识补充：扩展运算符可以替代es5中的push方法，添加一个数组到另一个数组末尾</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">两种语法的写法如下：</span><br><span class="line"></span><br><span class="line">// 将arr2中的所有元素添加到arr1中</span><br><span class="line"></span><br><span class="line">// ES5</span><br><span class="line">var arr1 = [0, 1, 2];</span><br><span class="line">var arr2 = [3, 4, 5];</span><br><span class="line">Array.prototype.push.apply(arr1, arr2);</span><br><span class="line"></span><br><span class="line">// ES6</span><br><span class="line">var arr1 = [0, 1, 2];</span><br><span class="line">var arr2 = [3, 4, 5];</span><br><span class="line">arr1.push(...arr2);</span><br></pre></td></tr></table></figure></li>
+<li><p>编写匹配输入的函数（过滤数据）</p>
+<p>1.filter()过滤数组数据</p>
+<p>2.创建正则表达式，构造过滤条件</p>
+<p>正则表达式中’gi’ 意义“全局匹配加忽略大小</p>
+<p>正则表达式匹配用match</p>
+</li>
+<li><p>显示数据：</p>
+<p>获取两个主要HTML元素，添加事件监听(change,keyup)</p>
+<p>编写展示匹配结果的函数并将其展示对应的效果</p>
+<p>1.过去匹配数据</p>
+<p>2.替换关键词放入高亮的标签</p>
+<p>用replace来代替关键词放入高亮的标签</p>
+<p>3.构造html标签数据</p>
+<p>4.将匹配值得html放入<ul>中</p>
+</li>
+</ul>
+<h4 id="day7-Array-Cardio-Day-2"><a href="#day7-Array-Cardio-Day-2" class="headerlink" title="day7   Array Cardio Day 2"></a>day7   Array Cardio Day 2</h4><p>day5 中array实例：</p>
+<p>ES5： filter，map 迭代方法 特点：数组的每一项都运行给定函数，根据使用的迭代方法的不同，有不同的返回结果。</p>
+<ol>
+<li><p>筛选 16 世纪出生的发明家</p>
+<p>filter(function(){})  迭代方法，筛出运行结果是true的组成数据返回</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const fif=inventors.filter(inventor =&gt; inventor.year&gt;=1500 &amp;&amp; inventor.year&lt;1600 );</span><br></pre></td></tr></table></figure></li>
+<li><p>展示他们的姓和名</p>
+<p>map：把数组中的每个元素进行处理，返回一个新的数组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const name=inventors.map(inventor=&gt;`$&#123;inventor.first&#125; $&#123;inventor.last&#125;`)</span><br></pre></td></tr></table></figure></li>
+<li><p>把他们按照出生日期从大到小进行排序</p>
+<p>sort： 将数组以字符串的形式进行升序排列（10会排在2前面），但是也可以自定义函数作为参考，可以对数字大小排序时设定一个比较函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const orders=inventors.sort((a,b)=&gt;a.year-b.year);</span><br></pre></td></tr></table></figure></li>
+<li><p>计算所有的发明家加起来一共活了多少岁</p>
+<p>reduce：可以当做累加器看到</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const live=inventors.reduce((total,inventors)=&gt; &#123;</span><br><span class="line">     return total+inventors.passed-inventors.year</span><br><span class="line">     &#125;,0)</span><br><span class="line">     0表示传递给函数的初始值</span><br></pre></td></tr></table></figure>
+
+<p>是一个归并数组的方法，接受一个函数作为参数，会遍历数组的所用项，然后构建一个最终的返回值，这个值就是累加器的第一个参数</p>
+</li>
+<li><p>按照他们活了多久来进行排序</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const lived=inventors.sort((a,b)=&gt; a.passed-a.year -(b.passed-b.year));</span><br></pre></td></tr></table></figure></li>
+<li><p>筛选出一个网页里含有某个词语的标题</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const category =document.querySelector(&#x27;.mw-category&#x27;);</span><br><span class="line">   const links = Array.from(category.querySelectorAll(&#x27;a&#x27;));</span><br><span class="line">   const de = links</span><br><span class="line">               .map(link =&gt; link.textContent)</span><br><span class="line">               .filter(streetName =&gt; streetName.includes(&#x27;de&#x27;));</span><br></pre></td></tr></table></figure>
+
+<p>由于<code>querySelectorAll()</code> 获取到的是一个 NodeList ，它并非是 Array 类型的数据，所以并不具有 <code>map</code> 和 <code>filter</code> 这样的方法，所以如果要进行筛选操作则需要把它转化成 Array 类型，使用</p>
+</li>
+<li><p>按照姓氏来对发明家进行排序</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const alpha=people.sort((a,b)=&gt;&#123;</span><br><span class="line">     const [aFirst,aLast]=a.split(&#x27;,&#x27;);</span><br><span class="line">     const [bFirst,bLast]=b.split(&#x27;,&#x27;);</span><br><span class="line">     return aLast&gt;bLast ? 1:-1; </span><br><span class="line">   &#125;);</span><br></pre></td></tr></table></figure></li>
+<li><p>统计给出数组中各个物品的数量</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const data = [&#x27;car&#x27;, &#x27;car&#x27;, &#x27;truck&#x27;, &#x27;truck&#x27;, &#x27;bike&#x27;, &#x27;walk&#x27;, &#x27;car&#x27;, &#x27;van&#x27;, &#x27;bike&#x27;, &#x27;walk&#x27;, &#x27;car&#x27;, &#x27;van&#x27;, &#x27;car&#x27;, &#x27;truck&#x27; ];</span><br><span class="line">      const transportation =data.reduce((obj,item)=&gt;&#123;</span><br><span class="line">      if(!obj[item])&#123;</span><br><span class="line">        obj[item]=0</span><br><span class="line">      &#125;</span><br><span class="line">      obj[item]++;</span><br><span class="line">      return obj;</span><br><span class="line">      &#125;,&#123;&#125;)</span><br><span class="line">      console.log(transportation);</span><br></pre></td></tr></table></figure>
+
+<p>day7篇</p>
+<p>针对 people 数组：</p>
+<ol>
+<li><p>是否有人超过 19 岁？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// const adultpeople=people.some(function(person)&#123;</span><br><span class="line">  //   if ((new Date()).getFullYear()-person.year &gt;=19)&#123;</span><br><span class="line">  //     return true;</span><br><span class="line">  //   &#125;</span><br><span class="line">  // &#125;)</span><br><span class="line">   </span><br><span class="line">  const adultpeople=people.some(person=&gt;(new Date()).getFullYear()-person.year &gt;=19);</span><br><span class="line">  console.log(adultpeople);</span><br></pre></td></tr></table></figure></li>
+<li><p>是否所有人都是成年人？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const adultpeopleevery=people.every(person=&gt;(new Date()).getFullYear()-person.year &gt;=19);</span><br><span class="line">console.log(adultpeopleevery);</span><br></pre></td></tr></table></figure>
+
+<p>some和every：</p>
+<p>相同之处：都接受一个函数作为参数，对数组元素都执行一次作为次函数，不会改变原来数组的值</p>
+<p>不同之处：</p>
+<p>some：知道某个数组元素使此函数为true，立即返回true</p>
+<p>作用：判断一个数组中是否存在某个符合条件的值</p>
+<p>every：只有所有值都满足函数为true，返回true，否则是false</p>
+<p>作用：判断是否所有元素都符合条件</p>
+</li>
+</ol>
+<p>针对 comments 数组：</p>
+<ol>
+<li><p>找到 ID 号为 823423 的评论</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const idcomments=comments.find(comment=&gt;comment.id===823423);</span><br><span class="line"> console.log(idcomments);</span><br><span class="line"> console.table(idcomments);</span><br></pre></td></tr></table></figure></li>
+<li><p>删除 ID 号为 823423 的评论</p>
+<ol>
+<li>获取此 ID 对应元素在数组中所处的位置</li>
+<li>利用位置，删除该子元素</li>
+<li>或者拼接新的数组</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const idIndex=comments.findIndex(comment=&gt;comment.id===823423);</span><br><span class="line"> console.table(idIndex);</span><br><span class="line"> const decomments=[</span><br><span class="line">   ...comments.slice(0,idIndex),</span><br><span class="line">   ...comments.slice(idIndex+1)</span><br><span class="line"> ];</span><br><span class="line"> console.table(decomments);</span><br></pre></td></tr></table></figure>
+
+<p>find和findIndex：与some相似，但返回值不是布尔类型</p>
+<p>find：返回元素的值或undefined</p>
+<p>findIndex：元素的索引或-1</p>
+<p>slice和splice：</p>
+<p>相似：参数的第一个都是指的起始位置，且都接受负数，若是负数，代表倒数第几位。</p>
+<ul>
+<li><p><code>slice()</code>：不修改原数组，按照参数复制一个新数组，参数表述复制的起点和终点索引（省略则代表到末尾），但终点索引位置的元素不包含在内。</p>
+</li>
+<li><p><code>splice()</code>：原数组会被修改。第二个参数代表要删掉的元素个数，之后可选的参数，表示要替补被删除位置的元素。</p>
+<p>例子：看到一块纹着漂亮花纹的布料，slice 拿出相机拍了一张照，而 splice 拿出剪刀把这个花纹剪下来带走了，再用其他布料给缝回去。</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 删除方法一，splice()</span><br><span class="line">// comments.splice(index, 1);</span><br><span class="line"></span><br><span class="line">// 删除方法二，slice 拼接</span><br><span class="line">const newComments = [</span><br><span class="line">	...comments.slice(0, index),</span><br><span class="line">	...comments.slice(index + 1)</span><br><span class="line">];</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="day-8-Fun-with-HTML5-Canvas"><a href="#day-8-Fun-with-HTML5-Canvas" class="headerlink" title="day 8  Fun with HTML5 Canvas"></a>day 8  Fun with HTML5 Canvas</h4><p>实现彩虹画笔绘画板指南</p>
+<p>功能：实现一个绘画板，可供鼠标花花，颜色呈彩虹色渐变，画笔渐变同时有细到粗到细。</p>
+<p>涉及特性：</p>
+<p>Canvas：</p>
+<ul>
+<li>基本属性<ul>
+<li><code>getContext()</code></li>
+<li><code>strokeStyle</code></li>
+<li><code>fillStyle</code></li>
+<li><code>lineCap</code></li>
+<li><code>lineJoin</code></li>
+</ul>
+</li>
+<li>路径绘制<ul>
+<li><code>beginPath()</code></li>
+<li><code>lineTo()</code></li>
+<li><code>moveTo()</code></li>
+</ul>
+</li>
+</ul>
+<p>鼠标事件处理：</p>
+<ul>
+<li><code>mousemove</code></li>
+<li><code>mousedown</code></li>
+<li><code>mouseup</code></li>
+<li><code>mouseout</code></li>
+</ul>
+<p>过程：</p>
+<ol>
+<li><p>获取HTML中的canvas元素，并且设定宽高</p>
+</li>
+<li><p>.getContext(‘2d’)获取上写文，以ctx表示</p>
+</li>
+<li><p>设定ctx基本属性</p>
+<p>描边和线条颜色：</p>
+<ul>
+<li><code>lineCap</code>：笔触的形状，有 round | butt | square 圆、平、方三种。</li>
+<li><code>lineJoin</code>：线条相较的方式，有 round | bevel | miter 圆交、斜交、斜接三种。</li>
+<li><code>lineWidth</code>：线条的宽度</li>
+<li><code>strokeStyle</code>：线条描边的颜色</li>
+<li><code>fillStyle</code>：填充的颜色</li>
+</ul>
+<p>线条宽度</p>
+<p>线条末端形状</p>
+</li>
+</ol>
+<p>​     4.绘画效果</p>
+<p>​        设定一个用于标记绘画状态的变量</p>
+<p>​        鼠标事件监听，不同类型的事件将标记变量设为不同值</p>
+<p>​        编写发生绘制时触发的函数，设定绘制路径起点、终点</p>
+<ul>
+<li><code>beginPath()</code>：新建一条路径</li>
+<li><code>stroke()</code>：绘制轮廓</li>
+<li><code>moveTo()</code>：（此次）绘制操作的起点</li>
+<li><code>lineTo()</code>：路径的终点</li>
+</ul>
+<p>​      事件监听部分：</p>
+<p>解决这个问题，只需要将鼠标绘制时的动作分解清楚。思考或者模拟一下，在用鼠标画一条线时发生了什么：</p>
+<ol>
+<li>单击鼠标-按下准备开始</li>
+<li>移动鼠标-画线</li>
+<li>松开手指-结束画线</li>
+</ol>
+<p>这几个分解动作都有对应的鼠标事件，在编写这部分时你可以对每个事件监听 <code>console.log(e)</code> 来查看当前触发事件的属性、类型。对应 ctx 的操作的即是第二阶段，所以可以设定 <code>mousemove</code> 事件监听触发的函数进行绘制。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">canvas.addEventListener(&#x27;mousemove&#x27;, draw);</span><br></pre></td></tr></table></figure>
+
+<p>但只有这个并不够，你会发现只有 <code>mousemove</code> 事件监听时，只要鼠标在页面上划过都会触发函数。这时我们需要一个标记变量，来控制当前鼠标是不是处在按下的状态。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let isDrawing = false;</span><br><span class="line"></span><br><span class="line">canvas.addEventListener(&#x27;mousedown&#x27;, isDrawing = true);</span><br><span class="line">canvas.addEventListener(&#x27;mousemove&#x27;, draw);</span><br><span class="line">canvas.addEventListener(&#x27;mouseup&#x27;, () =&gt; isDrawing = false);</span><br><span class="line">canvas.addEventListener(&#x27;mouseout&#x27;, () =&gt; isDrawing = false); // 鼠标移出画布范围时</span><br></pre></td></tr></table></figure>
+
+<p>​     </p>
+<p>Canvas 绘制部分</p>
+<p>处理好事件监听，就可以编写绘制时触发的函数了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[lastX, lastY] = [e.offsetX, e.offsetY];</span><br><span class="line">ctx.beginPath();</span><br><span class="line">// 起点</span><br><span class="line">ctx.moveTo(lastX, lastY);</span><br><span class="line">// 终点</span><br><span class="line">ctx.lineTo(e.offsetX, e.offsetY);</span><br><span class="line">ctx.stroke();</span><br></pre></td></tr></table></figure>
+
+
+
+<p>如何解决线条的衔接问题？</p>
+<p>回想一下你点进来看顶部的示例动图时，有没有注意到一个细节，中间的两个数字是由一些点构成的，而不是一条线，这是由于我写的时候速度过快造成的，这是为什么呢？是我忽略了一个问题，上面这种写法下，<code>lastX</code> 和 <code>offsetX</code> 的值其实是相等的，这就出现了只绘制出一个个点的状况，所以需要改变一下更新 last 值的位置。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">function draw() &#123;</span><br><span class="line">	/* ... */</span><br><span class="line">    ctx.beginPath();</span><br><span class="line">    // 起点</span><br><span class="line">    ctx.moveTo(lastX, lastY);</span><br><span class="line">    // 终点</span><br><span class="line">    ctx.lineTo(e.offsetX, e.offsetY);</span><br><span class="line">    ctx.stroke();</span><br><span class="line">    [lastX, lastY] = [e.offsetX, e.offsetY];	</span><br><span class="line">	/* ... */</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*..*/</span><br><span class="line"></span><br><span class="line">canvas.addEventListener(&#x27;mousedown&#x27;, (e) =&gt; &#123;</span><br><span class="line">	isDrawing = true;</span><br><span class="line">	[lastX, lastY] = [e.offsetX, e.offsetY];</span><br><span class="line">	// 同样效果的写法：</span><br><span class="line">	lastX = e.offsetX;</span><br><span class="line">	lastY = e.offsetY;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>注意箭头函数里的参数 <code>e</code> 别忘记写。修复好问题之后，效果是下面这样，也就不会出现题图中的断断续续的情况了，此处我设置了透明度方便理解，可以观察到，当移动速度加快时，两个坐标之间会自动以直线连接起来。</p>
+<p>5.线条彩虹渐变效果（运用 hsl 的 <code>h</code> 值的变化，累加）</p>
+<p>​      利用 HSL 色彩模式</p>
+<ul>
+<li>H(hue) 代表色调，取值为 0~360，专业术语叫色相</li>
+<li>S 是饱和度，可以理解为掺杂进去的灰度值，取值为 0~1</li>
+<li>L 则是亮度，取值也是 0~1，或者百分比。</li>
+<li>如果想实现黑白水墨的颜色，可以将颜色设置为黑色，通过透明度的改变来实现深浅不一的颜色。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let hue = 0;</span><br><span class="line"></span><br><span class="line">ctx.strokeStyle = `hsl($&#123; hue &#125;, 100%, 50%)`;	</span><br><span class="line">if(hue &gt;= 360) hue = 0;</span><br><span class="line">hue++;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>​     6.线条粗细渐变效果（设定一个范围，当超出这个范围时，线条粗细进行逆向改变</p>
+<p>保证它在你期望的范围内。在这里可以引入一个布尔类型的标记变量，用它的值来控制线条是变粗还是变细，在线条粗细超过我们需要的范围时，将它取反。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">let direction = true;</span><br><span class="line">ctx.lineWidth = 90;</span><br><span class="line"></span><br><span class="line">// 控制笔触大小</span><br><span class="line">if(ctx.lineWidth &gt; 100 || ctx.lineWidth &lt; 80) &#123;</span><br><span class="line">	direction = !direction;</span><br><span class="line">&#125; </span><br><span class="line">if (direction) &#123;</span><br><span class="line">	ctx.lineWidth++;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">	ctx.lineWidth--;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>延伸思考：</p>
+<p>在手机上或者触摸屏上操作时，用鼠标并不是最好的操作方式，所以我添加了触摸操作的事件处理，但由于触摸事件中可以获取到的坐标属性名，与鼠标事件不相同，如果要同时支持触摸绘图，需要判断事件类型。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 处理鼠标点击操作</span><br><span class="line">if(e.type == &quot;mousemove&quot;)&#123;</span><br><span class="line">	x = e.offsetX;</span><br><span class="line">	y = e.offsetY;</span><br><span class="line">&#125; else  &#123;</span><br><span class="line">// 处理触摸屏操作</span><br><span class="line">	x = e.changedTouches[0].clientX;</span><br><span class="line">	y = e.changedTouches[0].clientY;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这样一来，你在手机 Chrome 上也可以试一试这个网页绘图板的效果。</p>
+<p>day9  学习 Dev Tool技巧</p>
+<p>day10 [Hold Shift and Check Checkboxes](<a target="_blank" rel="noopener" href="https://github.com/soyaine/JavaScript30/tree/master/10">https://github.com/soyaine/JavaScript30/tree/master/10</a> - Hold Shift and Check Checkboxes)</p>
+<p>checkbox按住shift的多选功能：在选中复选框是，标签里的文字显示删除线，按住shift键后进行多选操作的功能</p>
+<ol>
+<li>选中 A 项</li>
+<li>按下 Shift</li>
+<li>再选中 B 项</li>
+<li>A-B 之间的所有项都被选中</li>
+</ol>
+<p>关键点就在于 A、B 划出了一个范围，在这个范围之内的元素状态发生了改变。A 是上一次操作选中的对象，B 是此次操作对象，之后的内容将会用这两个单词来叙述。下面的方案就依据划定范围的方法不同来进行区分。</p>
+<ol>
+<li><p>获取所有的 <code>&lt;input&gt;</code> 元素，并添加事件监听</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const boxs = document.querySelectorAll(&#x27;.inbox input[type=&quot;checkbox&quot;]&#x27;);</span><br><span class="line">boxs.forEach(box =&gt;box.addEventListener(&#x27;click&#x27;, handleCheck));</span><br></pre></td></tr></table></figure></li>
+<li><p>编写 handleCheck 内部的处理逻辑（细节请看下一部分）</p>
+</li>
+</ol>
+<p>方法一：用一个变量来标记范围</p>
+<p>变量初始值为false，党按下shift键其同时选中了某个元素的时候遍历所有项，遍历过程中若遇到a或b则将标记值取反，同时将所有标记为true的项设置为选中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">let lastChecked;</span><br><span class="line"></span><br><span class="line">//	处理方法一：用变量 inBetween 对需要选中的元素进行标记</span><br><span class="line">function handleCheck0(e) &#123;</span><br><span class="line">	let inBetween = false;</span><br><span class="line">	if(e.shiftKey &amp;&amp; this.checked)&#123;</span><br><span class="line">		boxs.forEach(input =&gt; &#123;</span><br><span class="line">			console.log(input);</span><br><span class="line">			if(input === lastChecked || input ===this) &#123;</span><br><span class="line">				inBetween = !inBetween;</span><br><span class="line">			&#125;</span><br><span class="line">			if(inBetween) &#123;</span><br><span class="line">				console.log(&quot;on&quot;);</span><br><span class="line">				input.checked = true;</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">	lastChecked = this;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>上面会出现一个问题，初次加载页面时，按住 Shift 再点击某一项，此项之后的元素都会被选中。此外，对于取消选中，无法批量操作。</p>
+<p>方法一中的 <code>inBetween</code> 仅仅表示此项是否在被选中的范围中，此处会赋给它更多的意义，用它来表示此项是选中还是未选中，而范围划定则由数组来解决。</p>
+<p>首先将获取到的 <code>&lt;input&gt;</code> 组转化为数组，针对每次操作，获取 A 和 B，利用 <code>indexOf()</code> 来获得 A 和 B 在数组中的索引值，由此即可确定范围，并能通过 <code>slice()</code> 来直接截取 A-B 的所有 DOM 元素，并进行状态改变的操作，而变量 <code>onOff</code> 表示 A-B 范围内的状态，<code>true</code> 表示选中，<code>false</code> 表示取消选中。</p>
+<ol>
+<li><p>转换 Nodelist 为数组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const boxs = document.querySelectorAll(&#x27;.inbox input[type=&quot;checkbox&quot;]&#x27;);</span><br><span class="line">const boxArr = Array.from(boxs);</span><br></pre></td></tr></table></figure></li>
+<li><p>针对按下了 Shift 键的情况，获取 A-B 范围</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let start = boxArr.indexOf(this);</span><br><span class="line">let end = boxArr.indexOf(lastChecked);</span><br></pre></td></tr></table></figure></li>
+<li><p>截取该范围内的数组元素，并改变选中状态</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">boxArr.slice(Math.min(start, end), Math.max(start, end) + 1)</span><br><span class="line">				   .forEach(input =&gt; input.checked = onOff);</span><br></pre></td></tr></table></figure></li>
+<li><p>确定选中 or 取消选中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onOff = lastChecked.checked ? true : false;</span><br></pre></td></tr></table></figure></li>
+<li><p>标记 A 值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if(!lastChecked) lastChecked = this;</span><br><span class="line">/* ... */</span><br><span class="line">lastChecked = this;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>注意，以上几点是按点抽出的分块代码，整合起来的解决办法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">const boxArr = Array.from(boxs);</span><br><span class="line">let lastChecked;</span><br><span class="line">let onOff = false;</span><br><span class="line"></span><br><span class="line">// 处理方法二：利用数组索引获取需要选中的范围</span><br><span class="line">function handleCheck1(e) &#123;</span><br><span class="line">	if(!lastChecked) lastChecked = this;</span><br><span class="line">	onOff = lastChecked.checked ? true : false;</span><br><span class="line">	if(e.shiftKey) &#123;</span><br><span class="line">		let start = boxArr.indexOf(this);</span><br><span class="line">		let end = boxArr.indexOf(lastChecked);</span><br><span class="line">		boxArr.slice(Math.min(start, end), Math.max(start, end) + 1)</span><br><span class="line">		           .forEach(input =&gt; input.checked = onOff);</span><br><span class="line">		console.log(start + &quot;+&quot; + end);</span><br><span class="line">	&#125;</span><br><span class="line">	lastChecked = this;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -396,7 +993,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-11 23:29:41" itemprop="dateModified" datetime="2021-10-11T23:29:41+08:00">2021-10-11</time>
+                <time title="修改时间：2021-11-04 11:04:22" itemprop="dateModified" datetime="2021-11-04T11:04:22+08:00">2021-11-04</time>
               </span>
 
           
@@ -459,7 +1056,98 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public ListNode mergeTwoLists(ListNode l1, ListNode l2) &#123;</span><br><span class="line">        ListNode prehead = new ListNode(-1);</span><br><span class="line"></span><br><span class="line">        ListNode prev = prehead;</span><br><span class="line">        while (l1 != null &amp;&amp; l2 != null) &#123;</span><br><span class="line">            if (l1.val &lt;= l2.val) &#123;</span><br><span class="line">                prev.next = l1;</span><br><span class="line">                l1 = l1.next;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                prev.next = l2;</span><br><span class="line">                l2 = l2.next;</span><br><span class="line">            &#125;</span><br><span class="line">            prev = prev.next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // 合并后 l1 和 l2 最多只有一个还未被合并完，我们直接将链表末尾指向未合并完的链表即可</span><br><span class="line">        prev.next = l1 == null ? l2 : l1;</span><br><span class="line"></span><br><span class="line">        return prehead.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>时间复杂度：O(n + m)O(n+m)，其中 nn 和 mm 分别为两个链表的长度。因为每次循环迭代中，l1 和 l2 只有一个元素会被放进合并链表中， 因此 while 循环的次数不会超过两个链表的长度之和。所有其他操作的时间复杂度都是常数级别的，因此总的时间复杂度为 O(n+m)O(n+m)。</p>
-<h4 id="5-回文链表"><a href="#5-回文链表" class="headerlink" title="5.回文链表"></a>5.回文链表</h4><h5 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="C:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211011152546795.png" alt="image-20211011152546795"></h5><h4 id="6-环形链表"><a href="#6-环形链表" class="headerlink" title="6.环形链表"></a>6.环形链表</h4><p><img src="C:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211011152647663.png" alt="image-20211011152647663"></p>
+<h4 id="5-回文链表"><a href="#5-回文链表" class="headerlink" title="5.回文链表"></a>5.回文链表</h4><h5 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="C:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211011152546795.png" alt="image-20211011152546795"></h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">找到前半部分链表的尾节点。</span><br><span class="line">反转后半部分链表。</span><br><span class="line">判断是否回文。</span><br><span class="line">恢复链表。</span><br><span class="line">返回结果。</span><br><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">    public boolean isPalindrome(ListNode head) &#123;</span><br><span class="line">        if (head == null) &#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // 找到前半部分链表的尾节点并反转后半部分链表</span><br><span class="line">        ListNode firstHalfEnd = endOfFirstHalf(head);</span><br><span class="line">        ListNode secondHalfStart = reverseList(firstHalfEnd.next);</span><br><span class="line"></span><br><span class="line">        // 判断是否回文</span><br><span class="line">        ListNode p1 = head;</span><br><span class="line">        ListNode p2 = secondHalfStart;</span><br><span class="line">        boolean result = true;</span><br><span class="line">        while (result &amp;&amp; p2 != null) &#123;</span><br><span class="line">            if (p1.val != p2.val) &#123;</span><br><span class="line">                result = false;</span><br><span class="line">            &#125;</span><br><span class="line">            p1 = p1.next;</span><br><span class="line">            p2 = p2.next;</span><br><span class="line">        &#125;        </span><br><span class="line"></span><br><span class="line">        // 还原链表并返回结果</span><br><span class="line">        firstHalfEnd.next = reverseList(secondHalfStart);</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private ListNode reverseList(ListNode head) &#123;</span><br><span class="line">        ListNode prev = null;</span><br><span class="line">        ListNode curr = head;</span><br><span class="line">        while (curr != null) &#123;</span><br><span class="line">            ListNode nextTemp = curr.next;</span><br><span class="line">            curr.next = prev;</span><br><span class="line">            prev = curr;</span><br><span class="line">            curr = nextTemp;</span><br><span class="line">        &#125;</span><br><span class="line">        return prev;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private ListNode endOfFirstHalf(ListNode head) &#123;</span><br><span class="line">        ListNode fast = head;</span><br><span class="line">        ListNode slow = head;</span><br><span class="line">        while (fast.next != null &amp;&amp; fast.next.next != null) &#123;</span><br><span class="line">            fast = fast.next.next;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">        &#125;</span><br><span class="line">        return slow;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="6-环形链表"><a href="#6-环形链表" class="headerlink" title="6.环形链表"></a>6.环形链表</h4><p><img src="C:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211011152647663.png" alt="image-20211011152647663"></p>
+<h3 id="二叉树："><a href="#二叉树：" class="headerlink" title="二叉树："></a>二叉树：</h3><h4 id="二叉树的最大深度："><a href="#二叉树的最大深度：" class="headerlink" title="二叉树的最大深度："></a>二叉树的最大深度：</h4><p><img src="C:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211029094007384.png" alt="image-20211029094007384"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">深度优先搜索：</span><br><span class="line">原理：递归计算出左子树和右子树的最大深度</span><br><span class="line">class Solution &#123;</span><br><span class="line">    public int maxDepth(TreeNode root) &#123;</span><br><span class="line">        if (root == null) &#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            int leftHeight = maxDepth(root.left);</span><br><span class="line">            int rightHeight = maxDepth(root.right);</span><br><span class="line">            return Math.max(leftHeight, rightHeight) + 1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="验证二叉搜索树："><a href="#验证二叉搜索树：" class="headerlink" title="验证二叉搜索树："></a>验证二叉搜索树：</h4><p><img src="C:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211029095518521.png" alt="image-20211029095518521"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">递归法：在递归调用左子树时，我们需要把上界 upper 改为 root.val，即调用 helper(root.left, lower, root.val)，因为左子树里所有节点的值均小于它的根节点的值。同理递归调用右子树时，我们需要把下界 lower 改为 root.val，即调用 helper(root.right, root.val, upper)。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">    public boolean isValidBST(TreeNode root) &#123;</span><br><span class="line">        return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public boolean isValidBST(TreeNode node, long lower, long upper) &#123;</span><br><span class="line">        if (node == null) &#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">        if (node.val &lt;= lower || node.val &gt;= upper) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        return isValidBST(node.left, lower, node.val) &amp;&amp; isValidBST(node.right, node.val, upper);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="对称二叉树："><a href="#对称二叉树：" class="headerlink" title="对称二叉树："></a>对称二叉树：</h4><p><img src="C:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211029095712545.png" alt="image-20211029095712545"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">pp 指针和 qq 指针一开始都指向这棵树的根，随后 pp 右移时，qq 左移，pp 左移时，qq 右移。每次检查当前 pp 和 qq 节点的值是否相等，如果相等再判断左右子树是否对称。</span><br><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">    public boolean isSymmetric(TreeNode root) &#123;</span><br><span class="line">        return check(root, root);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public boolean check(TreeNode p, TreeNode q) &#123;</span><br><span class="line">        if (p == null &amp;&amp; q == null) &#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">        if (p == null || q == null) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        return p.val == q.val &amp;&amp; check(p.left, q.right) &amp;&amp; check(p.right, q.left);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>DFS (深度优先搜索) BFS（广度优先搜索）：dfs无法层序遍历和最短路径</p>
+<h4 id="二叉树的层序遍历："><a href="#二叉树的层序遍历：" class="headerlink" title="二叉树的层序遍历："></a>二叉树的层序遍历：</h4><p><img src="C:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211030102548659.png" alt="image-20211030102548659"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">while:将当前层的所有结点出队列，下一层的所有结点入队列</span><br><span class="line"></span><br><span class="line">public List&lt;List&lt;Integer&gt;&gt; levelOrder(TreeNode root) &#123;</span><br><span class="line">    List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    Queue&lt;TreeNode&gt; queue = new ArrayDeque&lt;&gt;();</span><br><span class="line">    if (root != null) &#123;</span><br><span class="line">        queue.add(root);</span><br><span class="line">    &#125;</span><br><span class="line">    while (!queue.isEmpty()) &#123;</span><br><span class="line">        int n = queue.size();</span><br><span class="line">        List&lt;Integer&gt; level = new ArrayList&lt;&gt;();</span><br><span class="line">        for (int i = 0; i &lt; n; i++) &#123; </span><br><span class="line">            TreeNode node = queue.poll();</span><br><span class="line">            level.add(node.val);</span><br><span class="line">            if (node.left != null) &#123;</span><br><span class="line">                queue.add(node.left);</span><br><span class="line">            &#125;</span><br><span class="line">            if (node.right != null) &#123;</span><br><span class="line">                queue.add(node.right);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        res.add(level);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-level-order-traversal/solution/bfs-de-shi-yong-chang-jing-zong-jie-ceng-xu-bian-l/">参考</a></p>
+<p>将有序数组转换为二叉搜索树</p>
+<p><img src="C:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211030103040991.png" alt="image-20211030103040991"></p>
+<h3 id="数组："><a href="#数组：" class="headerlink" title="数组："></a>数组：</h3><p>给你两个按 非递减顺序 排列的整数数组 nums1 和 nums2，另有两个整数 m 和 n ，分别表示 nums1 和 nums2 中的元素数目。</p>
+<p>请你 合并 nums2 到 nums1 中，使合并后的数组同样按 非递减顺序 排列。</p>
+<p><img src="C:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211103135644828.png" alt="image-20211103135644828"></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/merge-sorted-array/">leetcode88 合并两个有序数组</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let len1=m-1;</span><br><span class="line">      len2=n-1;</span><br><span class="line">      len=m+n-1;</span><br><span class="line">      while(len2&gt;=0)&#123;</span><br><span class="line">       if(len1&lt;0)&#123;</span><br><span class="line">       nums1[len--]=nums2[len2--];</span><br><span class="line">       continue</span><br><span class="line">       &#125;</span><br><span class="line">   nums1[len--]=nums1[len1] &gt;=nums2[len2] ? nums1[len1--]:nums2[len2--]</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+<p>另外一种算法:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var merge = function(nums1, m, nums2, n) &#123;</span><br><span class="line">    nums1.splice(m);</span><br><span class="line">    nums2.splice(n); </span><br><span class="line">    nums1.push(...nums2);</span><br><span class="line">    nums1.sort((a, b) =&gt; a - b)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="两数之和："><a href="#两数之和：" class="headerlink" title="两数之和："></a>两数之和：</h4><p><img src="C:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211103143523307.png" alt="image-20211103143523307"></p>
+<p>补充知识：map.has:用于查找数组中是否存在该数值</p>
+<p>map.get 返回一个<code>Map</code> 对象中与指定键相关联的值，如果找不到这个键则返回 <code>undefined</code>。<a target="_blank" rel="noopener" href="http://www.verydoc.net/javascript/00004753.html">map知识</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">var twoSum = function(nums, target) &#123;</span><br><span class="line"></span><br><span class="line">let map=new Map();</span><br><span class="line"></span><br><span class="line">for(let i=0;i&lt;nums.length;i++)&#123;</span><br><span class="line"></span><br><span class="line">  let k=target-nums[i];</span><br><span class="line"></span><br><span class="line">  if(map.has(k))&#123;</span><br><span class="line"></span><br><span class="line">  return [map.get(k),i];</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  map.set(nums[i],i);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">return [];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="三数之和"><a href="#三数之和" class="headerlink" title="三数之和"></a>三数之和</h4><p><img src="C:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211103190535020.png" alt="image-20211103190535020"></p>
+<p>思路一：</p>
+<p>学习两数之和的思路，遍历数组，选定nums[i]作为三数之和的第一个数 换成了在i+1到nums。length-1 中两数之和的问题</p>
+<p>缺点：有重复的三元组</p>
+<p><img src="C:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211103191019597.png" alt="image-20211103191019597"></p>
+<p>思路二：</p>
+<p>去除重复元组，使用排序去重</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">var threeSum = function(nums) &#123;</span><br><span class="line">let set=new Set();</span><br><span class="line">let result=[];</span><br><span class="line">nums.sort((a,b)=&gt;(a-b));//sort() 方法用于对数组的元素进行排序，并返回数组      升序排列</span><br><span class="line">for(let i=0;i&lt;nums.length-2;i++)&#123;</span><br><span class="line">    while (nums[i]===nums[i-1]) &#123;i++&#125; //去重</span><br><span class="line">    let first=nums[i];</span><br><span class="line">    let j=i+1</span><br><span class="line">    while(j&lt;nums.length)&#123;</span><br><span class="line">        let second=0-nums[j]-first;</span><br><span class="line">        let third=nums[j];</span><br><span class="line">        if(set.has(second))&#123;</span><br><span class="line">            result.push([first,second,third]);</span><br><span class="line">            set.add(third);</span><br><span class="line">            j++;</span><br><span class="line">            while(nums[j]===nums[j-1])&#123;j++&#125;;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            set.add(third)</span><br><span class="line">            j++</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    set=new Set();</span><br><span class="line">&#125;</span><br><span class="line">  return result;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>思路三：排序+双指针</p>
+<p>思路：数组排序，排序完遍历数组，nums[i]为第一个数 ，nums[i+1]第二个数，nums[nums.length-1]为第三个数 ，判断三数之和是否为0</p>
+<p>&lt;0 second 后移1位 反之 last往前一位 之和位0 进入结果进入数组中，并且second后移。last前移继续判断直至second &gt;=last 循环结束 ，此时， nums[i] 作为第⼀个数的所有满⾜条件的元组都已写⼊ 结果数组中了，继续遍历数组，直⾄ i === nums.length - 2 (后⾯需要有 second 、 last）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">var threeSum = function(nums) &#123;</span><br><span class="line">if(!nums || nums.length &lt;3) return [];</span><br><span class="line">let result =[],second,last</span><br><span class="line">//排序</span><br><span class="line">nums.sort((a,b)=&gt;(a-b))</span><br><span class="line">for(let i=0;i&lt;nums.length;i++)&#123;</span><br><span class="line">    if(nums[i]&gt;0)break</span><br><span class="line">    //去重</span><br><span class="line">     if(i&gt;0 &amp;&amp; nums[i]===nums[i-1]) continue</span><br><span class="line">     second=i+1;</span><br><span class="line">     last=nums.length-1</span><br><span class="line">     while(second &lt;last)&#123;</span><br><span class="line">         const sum=nums[i]+nums[second]+nums[last]</span><br><span class="line">         if(!sum)&#123;</span><br><span class="line">         //sum为0</span><br><span class="line">             result.push([nums[i],nums[second],nums[last]])</span><br><span class="line">             //去重</span><br><span class="line">             while(second&lt;last &amp;&amp; nums[second]===nums[second+1])</span><br><span class="line">             second++</span><br><span class="line">             while(second&lt;last &amp;&amp; nums[last]===nums[last-1])</span><br><span class="line">             last--</span><br><span class="line">             second++</span><br><span class="line">             last--</span><br><span class="line"></span><br><span class="line">         &#125;</span><br><span class="line">         else if(sum&lt;0) second++</span><br><span class="line">         else if(sum&gt;0) last --</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line">return result</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="手写数组去重，扁平化函数、排序"><a href="#手写数组去重，扁平化函数、排序" class="headerlink" title="手写数组去重，扁平化函数、排序"></a>手写数组去重，扁平化函数、排序</h4><p>知识点：arr.flat (infinifty) :</p>
+<p>数组扁平化：将数组中并不规则的多维数组去除维度，使之变为一维数组。</p>
+<p>参考：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat">flat</a></p>
+<p>reduce 方法：</p>
+<p>参考：    通过最后一次调用回调函数获得的累积结果。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41702660/article/details/81949459">reduce</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/SimonITer/article/details/52013660">reduce方法</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let newArray = arr.flat(depth)</span><br><span class="line">depth指定要提取嵌套数组的结构深度，默认值为1。</span><br><span class="line">但使用 Infinity 作为深度，展开任意深度的嵌套数组</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//扁平化</span><br><span class="line">    const flattenDeep=(array)=&gt;array.flat(Infinity)</span><br><span class="line">    //去重</span><br><span class="line">    const unique=(array)=&gt;Array.from(new Set(array))</span><br><span class="line">    //排序</span><br><span class="line">    const sort =(array)=&gt;array.sort((a,b)=&gt; a-b)</span><br><span class="line">    // 函数组合</span><br><span class="line">    const compose=(...fns)=&gt;(initValue)=&gt; fns.reduceRight((y,fn)=&gt;fn(y),initValue)</span><br><span class="line">//    组合后函数</span><br><span class="line">const flatten_unique_sort=compose(sort,unique,flattenDeep)</span><br><span class="line">// 测试</span><br><span class="line">var arr= [ [1, 2, 2], [3, 4, 5, 5], [6, 7, 8, 9, [11, 12, [12, 13, [14] ]] ], 10]</span><br><span class="line">console.log(flatten_unique_sort(arr));</span><br></pre></td></tr></table></figure>
+
+<p>注意： flat() ⽅法对 node 版本有要求，⾄少需要 12.0 以上</p>
+<h3 id="携程-amp-蘑菇街-amp-bilibili：手写数组去重、扁平化函数"><a href="#携程-amp-蘑菇街-amp-bilibili：手写数组去重、扁平化函数" class="headerlink" title="携程&amp;蘑菇街&amp;bilibili：手写数组去重、扁平化函数"></a>携程&amp;蘑菇街&amp;bilibili：手写数组去重、扁平化函数</h3><p><a target="_blank" rel="noopener" href="https://github.com/sisterAn/JavaScript-Algorithms/issues/30">参考链接</a></p>
+<p>利用while循环结合some实现数组扁平，然后利用ES6 Set去重</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let arr = [[123,123,2,4,42,1,2,5], [5,8,6,54,3,9,9,3],0,7];</span><br><span class="line"></span><br><span class="line">while(arr.some(item =&gt; Array.isArray(item))) &#123;</span><br><span class="line"></span><br><span class="line">  arr = [].concat(...arr);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let setlist = new Set([...arr]);</span><br><span class="line"></span><br><span class="line">console.log([...setlist]); //[123, 2, 4, 42, 1, 5, 8, 6, 54, 3, 9, 0, 7]</span><br></pre></td></tr></table></figure>
+
+<h4 id="⼿写数组去重、扁平化函数"><a href="#⼿写数组去重、扁平化函数" class="headerlink" title="⼿写数组去重、扁平化函数"></a>⼿写数组去重、扁平化函数</h4><p>知识点：</p>
+<p>数组扁平化（又称数组降维）</p>
+<ol>
+<li>MDN： flat() ⽅法会按照⼀个可指定的深度递归遍历数组，并将所有元素与遍历到的⼦数 组中的元素合并为⼀个新数组返回</li>
+<li>Array.prototype.flat() 特性总结：</li>
+<li> Array.prototype.flat() ⽤于将嵌套的数组扁平化，变成⼀维的数组。该⽅法返回⼀个新 数组，对原数据没有影响。</li>
+<li> 不传参数时，默认扁平化⼀层，可以传⼊⼀个整数，表示想要扁平化的层数。</li>
+<li> 传⼊ &lt;=0 的整数将返回原数组，不扁平化</li>
+<li> Infinity 关键字作为参数时，⽆论多少层嵌套，都会转为⼀维数组 </li>
+<li>如果原数组有空位， Array.prototype.flat() 会跳过空位。</li>
+</ol>
+<p>使用reduce方法：</p>
+<p>栈</p>
+<p>数组去重方法：</p>
+<p>set</p>
+<p>reduce</p>
+<p>filter</p>
+<h4 id="编写⼀个函数计算多个数组的交集"><a href="#编写⼀个函数计算多个数组的交集" class="headerlink" title="编写⼀个函数计算多个数组的交集"></a>编写⼀个函数计算多个数组的交集</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const intersection =function(...args)&#123;</span><br><span class="line">          if(args.length ===0)&#123;</span><br><span class="line">              return [];</span><br><span class="line">          &#125;</span><br><span class="line">          if(args.length ===1)&#123;</span><br><span class="line">              return args[0];</span><br><span class="line">          &#125;</span><br><span class="line">          return [...new Set(args.reduce((result,arg)=&gt;&#123;</span><br><span class="line">              return result.filter(item=&gt;arg.includes(item))</span><br><span class="line">          &#125;))]</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -741,346 +1429,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/23/Js%E4%B8%AD%E5%86%85%E5%AD%98%E7%A9%BA%E9%97%B4%E7%90%86%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="乌冬面">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="乌冬面的日常">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/23/Js%E4%B8%AD%E5%86%85%E5%AD%98%E7%A9%BA%E9%97%B4%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">Js理解</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-09-23 20:01:02" itemprop="dateCreated datePublished" datetime="2021-09-23T20:01:02+08:00">2021-09-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-11 18:39:27" itemprop="dateModified" datetime="2021-10-11T18:39:27+08:00">2021-10-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="Js理解："><a href="#Js理解：" class="headerlink" title="Js理解："></a>Js理解：</h4><h5 id="调用堆栈篇："><a href="#调用堆栈篇：" class="headerlink" title="调用堆栈篇："></a>调用堆栈篇：</h5><p>对于基本类型，值是存储在栈中的（不含闭包中的变量），对于引用类型，在栈内存放地址放在堆内存中。</p>
-<p>基本类型一共有6种：undefined,null ,boolean，number,string,symbol</p>
-<p>几个问题：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var a = 20;</span><br><span class="line">var b = a;</span><br><span class="line">b = 30;</span><br><span class="line"></span><br><span class="line">// 这时a的值是多少？</span><br><span class="line"></span><br><span class="line">var a = &#123; name: &#x27;前端开发&#x27; &#125;</span><br><span class="line">var b = a;</span><br><span class="line">b.name = &#x27;进阶&#x27;;</span><br><span class="line"></span><br><span class="line">// 这时a.name的值是多少</span><br><span class="line"></span><br><span class="line">var a = &#123; name: &#x27;前端开发&#x27; &#125;</span><br><span class="line">var b = a;</span><br><span class="line">a = null;</span><br><span class="line"></span><br><span class="line">// 这时b的值是多少</span><br></pre></td></tr></table></figure>
-
-<p>答案：20、’进阶’、{name：’前端开发}</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;<span class="attr">n</span>: <span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> b = a;</span><br><span class="line">a.x = a = &#123;<span class="attr">n</span>: <span class="number">2</span>&#125;;</span><br><span class="line"></span><br><span class="line">a.x 	<span class="comment">// 这时 a.x 的值是多少</span></span><br><span class="line">b.x 	<span class="comment">// 这时 b.x 的值是多少</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><img src="C:/Users/zxy/Desktop/微信图片_20210923195323.jpg" alt="微信图片_20210923195323"></p>
-<p>undifined object</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/mx18519142864/article/details/83111207">参考理解1</a></p>
-<p><a target="_blank" rel="noopener" href="https://muyiy.cn/blog/1/1.3.html#%E5%8F%98%E9%87%8F%E7%9A%84%E5%AD%98%E6%94%BE">参考理解2</a></p>
-<p>补充知识点：闭包中的变量是保存在堆内存中的。</p>
-<p>函数 A 弹出调用栈后，函数 A 中的变量这时候是存储在堆上的，所以函数B依旧能引用到函数A中的变量。现在的 JS 引擎可以通过逃逸分析辨别出哪些变量需要存储在堆上，哪些需要存储在栈上。</p>
-<p>从内存来看null和undefined本质的区别是什么？</p>
-<p>给一个全局变量赋值为null，相当于将这个变量的指针对象以及值清空，如果是给对象的属性赋值为null，相当于给这个属性分配了一个空的内存，值为null，js会回收全局变量为null的对象。</p>
-<p>给一个全局变量赋值为undifined，相当于将这个对象的值清空，但是这个对象依旧存在，如果是给对象的属性赋值为undefined，说明这个值为空值。</p>
-<p>扩展：如果声明了一个变量，但是没有对其初始化，这个变量的值就是undefined</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var data;</span><br><span class="line">console.log(data === undefined); //true</span><br></pre></td></tr></table></figure>
-
-<p>对于尚未声明过得变量只能执行一项操作，即使用typeof 操作符检测其数据类型，使用其他的操作都会报错。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//data变量未定义</span><br><span class="line">console.log(typeof data); // &quot;undefined&quot;</span><br><span class="line">console.log(data === undefined); //报错</span><br></pre></td></tr></table></figure>
-
-<p>值null特指对象未设置，与undefined不同，undefined是一个全局对象的一个属性，null是表示缺少的标识，指示变量未指向任何对象。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// foo不存在，它从来没有被定义过或者是初始化过：</span><br><span class="line">foo;</span><br><span class="line">&quot;ReferenceError: foo is not defined&quot;</span><br><span class="line"></span><br><span class="line">// foo现在已经是知存在的，但是它没有类型或者是值：</span><br><span class="line">var foo = null; </span><br><span class="line">console.log(foo);	// null</span><br></pre></td></tr></table></figure>
-
-<h6 id="执行上下文习题："><a href="#执行上下文习题：" class="headerlink" title="执行上下文习题："></a>执行上下文习题：</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">//    1.-------------------------------------------------------------</span><br><span class="line">        console.log(&#x27;gb:&#x27;+ i);</span><br><span class="line">        var i=1</span><br><span class="line">        foo(1)</span><br><span class="line">        function foo(i)&#123;</span><br><span class="line">            if(i==4)&#123;</span><br><span class="line">                return</span><br><span class="line">            &#125;</span><br><span class="line">            console.log(&#x27;foo() begin&#x27; + i);</span><br><span class="line">            foo(i+1)//递归调用：在函数内部调用自己</span><br><span class="line">            console.log(&#x27;foo()end&#x27; + i);</span><br><span class="line">        &#125;</span><br><span class="line">        console.log(&#x27;ge:&#x27; + i);</span><br><span class="line"></span><br><span class="line">    //    2.----------------------------------------</span><br><span class="line">        function a()&#123;&#125;</span><br><span class="line"></span><br><span class="line">            var a;</span><br><span class="line">            console.log(typeof a);</span><br><span class="line"></span><br><span class="line">    // 3.-------------------------------------------</span><br><span class="line"></span><br><span class="line">        if(!(b in window))&#123;</span><br><span class="line">            var b=1;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        console.log(b);</span><br><span class="line"></span><br><span class="line">    // 4.-------------------------------------------</span><br><span class="line"></span><br><span class="line">    var c=1</span><br><span class="line">    function c(c)&#123;</span><br><span class="line">        console.log(c)</span><br><span class="line">    &#125;</span><br><span class="line">    c(2)</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img-blog.csdnimg.cn/0fac02477d9a43d69daacc8362903f74.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_14,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<h5 id="作用域闭包："><a href="#作用域闭包：" class="headerlink" title="作用域闭包："></a>作用域闭包：</h5><p>作用域链和原型查找时的区别：如果去查找一个普通对象向的属性，但是在当前对象和其原型中都找不到时会返回undefined，但是查找的属性在作用域链中不存在的话就会抛出ReferenceError.</p>
-<p>作用域链的顶端是全局对象，在全局环境中定义的变量就会绑定到全局对象中。</p>
-<p>从实践角度：闭包的概念：</p>
-<p>即使创建他的上写文已经销毁，他仍然存在（比如，内部函数从父函数中返回），</p>
-<p>在代码中引用了自由变量</p>
-<p><a target="_blank" rel="noopener" href="https://muyiy.cn/blog/2/2.1.html#%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE">参考链接</a></p>
-<h6 id="闭包相关习题："><a href="#闭包相关习题：" class="headerlink" title="闭包相关习题："></a>闭包相关习题：</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var name = &quot;The Window&quot;;</span><br><span class="line">        var object = &#123;</span><br><span class="line">            name: &quot;My Object&quot;,</span><br><span class="line">            getNameFunc: function() &#123;</span><br><span class="line">                return function() &#123;</span><br><span class="line">                    return this.name;</span><br><span class="line">                &#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        console.log(object.getNameFunc()())</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">      //The Window</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var name = &quot;The Window&quot;;　　</span><br><span class="line">        var object = &#123;　　　　</span><br><span class="line">            name: &quot;My Object&quot;,</span><br><span class="line">            getNameFunc: function() &#123;</span><br><span class="line">                var that = this;</span><br><span class="line">                return function() &#123;</span><br><span class="line">                    return that.name;</span><br><span class="line">                &#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        console.log(object.getNameFunc()())</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">     // My Object</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/23/%E7%AE%97%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="乌冬面">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="乌冬面的日常">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/23/%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">算法</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-09-23 13:06:30" itemprop="dateCreated datePublished" datetime="2021-09-23T13:06:30+08:00">2021-09-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-11 19:27:53" itemprop="dateModified" datetime="2021-10-11T19:27:53+08:00">2021-10-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><h5 id="重组集合"><a href="#重组集合" class="headerlink" title="重组集合"></a>重组集合</h5><p>将数组[2, 0, 6, 1, 77, 0, 52, 0, 25, 7]中的 0 去掉后，形成一个不包含 0 的新数组。</p>
-<p>思路：</p>
-<p>1.一个新数组来存放筛选后的数据</p>
-<p>2.遍历原来的数据，把不是0的数组添加到新数组中(此时要注意采用数组名 + 索引的格式接收数据)。</p>
-<p>3.新数组里面的个数，用length不断累加</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var arr = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7];</span><br><span class="line">        var newArr = [];</span><br><span class="line">        for (var i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">            if (arr[i] != 0) &#123;</span><br><span class="line">                newArr[newArr.length] = arr[i];</span><br><span class="line">               </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        console.log(newArr);</span><br></pre></td></tr></table></figure>
-
-<p>[‘c’, ‘a’, ‘z’, ‘a’, ‘x’, ‘a’, ‘x’, ‘c’, ‘b’] 要求去除数组中重复的元素。</p>
-<p>1.目标： 把旧数组里面不重复的元素选取出来放到新数组中， 重复的元素只保留一个， 放到新数组中去重。<br> 2.核心算法： 我们遍历旧数组， 然后拿着旧数组元素去查询新数组， 如果该元素在新数组里面没有出现过， 我们就添加， 否则不添加。<br> 3.我们怎么知道该元素没有存在？ 利用 新数组.indexOf(数组元素) 如果返回时 - 1 就说明 新数组里面没有改元素<br>封装一个 去重的函数 unique 独一无二的 </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function unique(arr) &#123;</span><br><span class="line">           var newArr = [];</span><br><span class="line">           for (var i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">               if (newArr.indexOf(arr[i]) === -1) &#123;</span><br><span class="line">                   newArr.push(arr[i]);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           return newArr;</span><br><span class="line">       &#125;</span><br><span class="line">         var demo = unique([&#x27;c&#x27;, &#x27;a&#x27;, &#x27;z&#x27;, &#x27;a&#x27;, &#x27;x&#x27;, &#x27;a&#x27;, &#x27;x&#x27;, &#x27;c&#x27;, &#x27;b&#x27;])</span><br><span class="line"></span><br><span class="line">        console.log(demo);</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">          // //1.用set数据结构做数组去重</span><br><span class="line">       const s1 = new Set([&#x27;c&#x27;, &#x27;a&#x27;, &#x27;z&#x27;, &#x27;a&#x27;, &#x27;x&#x27;, &#x27;a&#x27;, &#x27;x&#x27;, &#x27;c&#x27;, &#x27;b&#x27;]);//可以把重复的值过滤掉</span><br><span class="line">       const ary = [...s1];   </span><br><span class="line">       console.log(ary);</span><br></pre></td></tr></table></figure>
-
-<h5 id="存在重复元素"><a href="#存在重复元素" class="headerlink" title="存在重复元素"></a>存在重复元素</h5><h4 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h4><p>利用递归函数求1~n的阶乘 1 * 2 * 3 * 4 * ..n</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function fn(n) &#123;</span><br><span class="line">            if (n == 1) &#123;</span><br><span class="line">                return 1;</span><br><span class="line">            &#125;</span><br><span class="line">            return n * fn(n - 1)</span><br><span class="line">        &#125;</span><br><span class="line">        console.log(fn(3)); </span><br></pre></td></tr></table></figure>
-
-
-
-<p>// 利用递归函数求斐波那契数列(兔子序列) 1、1、2、3、5、8、13、21…</p>
-<p>​    // 用户输入一个数字 n 就可以求出 这个数字对应的兔子序列值</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function fb(n) &#123;</span><br><span class="line">         if (n == 1 || n == 2) &#123;</span><br><span class="line">             return 1;</span><br><span class="line">         &#125; else return fb(n - 1) + fb(n - 2);</span><br><span class="line">     &#125;</span><br><span class="line">     console.log(fb(3));</span><br><span class="line">     console.log(fb(6));</span><br></pre></td></tr></table></figure>
-
-<p>线性结构非线性结构区别：是否是一对一</p>
-<h4 id="稀疏数组："><a href="#稀疏数组：" class="headerlink" title="稀疏数组："></a>稀疏数组：</h4><p>一个数组中大部分为0，或者为同一个值的数组，可以使用稀疏数组来保存该数组</p>
-<p>稀疏数组的处理方法是：</p>
-<p>1.记录数组一共有几行激烈，有多少个不同的值</p>
-<p>2.把具有不同值的元素行列及值记录在一个小规模的数组中，从而缩小程序的规模</p>
-<p>二维数组和稀疏数组之间的相互转化：</p>
-<p>二维数组转稀疏数组：</p>
-<p>1.遍历原始的二维数组，得到有效数组的个数sum</p>
-<p>2.根据sum创建稀疏数组spaseArr int[sum+1] [3]</p>
-<p>3.将二维数组的有效数据存入到稀疏数组中</p>
-<p>稀疏数组转二维数组：</p>
-<p>1.读取稀疏数组的第一行，根据第一行的数据创建原始的二维数组 </p>
-<p>2.再去取稀疏数组后几行的数据并且赋值给二维数组即可</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/22/BFC%E5%BA%94%E7%94%A8%EF%BC%8C%E7%90%86%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="乌冬面">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="乌冬面的日常">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/22/BFC%E5%BA%94%E7%94%A8%EF%BC%8C%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">BFC应用，理解</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-09-22 19:26:38 / 修改时间：21:31:49" itemprop="dateCreated datePublished" datetime="2021-09-22T19:26:38+08:00">2021-09-22</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="BFC应用，理解"><a href="#BFC应用，理解" class="headerlink" title="BFC应用，理解"></a>BFC应用，理解</h3><h4 id="高度塌陷问题"><a href="#高度塌陷问题" class="headerlink" title="高度塌陷问题"></a>高度塌陷问题</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">        .outer &#123;</span><br><span class="line">            border: 10px red solid;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .inner &#123;</span><br><span class="line">            width: 100px;</span><br><span class="line">            height: 100px;</span><br><span class="line">            background-color: #bfa;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;body&gt;</span><br><span class="line"></span><br><span class="line">    &lt;div class=&quot;outer&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;inner&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div style=&quot;width:100px ;height:100px;background-color:yellow;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img-blog.csdnimg.cn/ab1426c425b844619ef53923391d23ae.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_14,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<p>但是当在子元素变成浮动以后，</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.inner &#123;</span><br><span class="line">           width: 100px;</span><br><span class="line">           height: 100px;</span><br><span class="line">           background-color: #bfa;</span><br><span class="line"></span><br><span class="line">           float: left;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
-
-<p>会出现如下情况：<br><img src="https://img-blog.csdnimg.cn/0a3569b38d404e74b4f2a59ac731ce31.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_14,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<p>即出现高度塌陷问题：原因：</p>
-<p>在浮动布局中，父元素的高度默认是被子元素撑开的</p>
-<p>当子元素浮动后，其会完全脱离文档流，子元素从文档流中脱离</p>
-<p>将会无法撑起父元素的高度，导致父元素高度丢失</p>
-<p>父元素高度丢失以后其下的元素会自动上移，导致页面的布局混乱</p>
-<h5 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h5><h6 id="1-给父元素一个固定的高度，"><a href="#1-给父元素一个固定的高度，" class="headerlink" title="1.给父元素一个固定的高度，"></a>1.给父元素一个固定的高度，</h6><p>但是此方法不能从根本上解决问题，本来目的就是大块能跟着小块的大小一起增加或减少，如果直接定义了高度那么这就没有了之前添加float的意义</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.outer &#123;</span><br><span class="line">            border: 10px red solid;</span><br><span class="line">             height: 100px; </span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-
-<h6 id="2-运用BFC-块格式化环境"><a href="#2-运用BFC-块格式化环境" class="headerlink" title="2.运用BFC 块格式化环境"></a>2.运用BFC 块格式化环境</h6><p>1.设置元素的浮动 </p>
-<p>​      float :left;  缺点：脱离文档流所以宽度也没有了（不推荐）（黄色块块消失）</p>
-<p>给父元素添加后的效果：<br><img src="https://img-blog.csdnimg.cn/2efb6c9f8d8c4b428a45fc4ccc3a3788.png#pic_center" alt="在这里插入图片描述"></p>
-<p>​      2.将元素设置元行内块元素</p>
-<p>​      display:inline-block ; 行内块不适合给父元素且宽度也没有了（不推荐）<br><img src="https://img-blog.csdnimg.cn/14e8c49b454c4f80b8fbe837b33a32f9.png#pic_center" alt="在这里插入图片描述"><br>​      3.将元素的overflow设置为一个非visible的值</p>
-<p>​      overflow：hidden 或者auto 此方法较为常用</p>
-<p>​      overflow 属性规定当内容溢出元素框时发生的事情。<br><img src="https://img-blog.csdnimg.cn/9cfd3ed27f59417caedbfe5df5eaff97.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_17,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<h3 id="理解：什么是BFC？"><a href="#理解：什么是BFC？" class="headerlink" title="理解：什么是BFC？"></a>理解：什么是BFC？</h3><p> 他是一个css中的隐含属性，可以为一个元素开启bfc</p>
-<p>​      开启bfc该元素会变成一个独立的布局区域</p>
-<p>​      开启bfc后的特点：</p>
-<p>​      1.不会被浮动元素所覆盖</p>
-<p>​      2.外边距不会重叠</p>
-<p>​      3.可以包含浮动的子元素</p>
-<p>​      开启的方式：</p>
-<p>​      1.设置元素的浮动 </p>
-<p>​      float :left;  缺点：脱离文档流所以宽度也没有了（不推荐）</p>
-<p>​      2.将元素设置元行内块元素</p>
-<p>​      display:inline-block ; 行内块不适合给父元素且宽度也没有了（不推荐）</p>
-<p>​      3.将元素的overflow设置为一个非visible的值</p>
-<p>​      overflow：hidden 或者auto 此方法较为常用</p>
-<p>​      overflow 属性规定当内容溢出元素框时发生的事情。</p>
-<h3 id="深入理解和训练："><a href="#深入理解和训练：" class="headerlink" title="深入理解和训练："></a>深入理解和训练：</h3><h4 id="1-二个盒子，不希望box2被box1覆盖"><a href="#1-二个盒子，不希望box2被box1覆盖" class="headerlink" title="1.二个盒子，不希望box2被box1覆盖"></a>1.二个盒子，不希望box2被box1覆盖</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.box1 &#123;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            background-color: #bfa;</span><br><span class="line">            float: left;</span><br><span class="line">        &#125;</span><br><span class="line"> .box2 &#123;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            background-color: orange;</span><br><span class="line">           </span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        &lt;div class=&quot;box1&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;box2&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-
-<p>box2被box1覆盖<br><img src="https://img-blog.csdnimg.cn/5d9be056b4a14a64bbc309e3b0578490.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_8,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.box2 &#123;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            background-color: orange;</span><br><span class="line">           /* 不希望box2被box1覆盖则：*/</span><br><span class="line">            overflow: hidden; </span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/4b392d6dada94ea1a14dd9d134b96b49.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_12,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<h4 id="2-两个盒子box1和box3-希望box3往下走"><a href="#2-两个盒子box1和box3-希望box3往下走" class="headerlink" title="2.两个盒子box1和box3 希望box3往下走"></a>2.两个盒子box1和box3 希望box3往下走</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">.box1 &#123;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            background-color: #bfa;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">.box3 &#123;</span><br><span class="line">            width: 100px;</span><br><span class="line">            height: 100px;</span><br><span class="line">            background-color: yellow;</span><br><span class="line">            margin-top: 100px;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        &lt;div class=&quot;box1&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;box3&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br></pre></td></tr></table></figure>
-
-<p>出现外边距重叠：子元素和父元素外边距重叠<br><img src="https://img-blog.csdnimg.cn/89b689ddf9a141d7b7d4536e392b78c8.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_10,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<p>解决方法：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.box1 &#123;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            background-color: #bfa;</span><br><span class="line">             /* 出现外边距重叠此时可以*/</span><br><span class="line">            overflow: hidden; </span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/bc9e64461f9447c2ba7de0c6074a574c.png#pic_center" alt="在这里插入图片描述"></p>
-<h4 id="clear使用："><a href="#clear使用：" class="headerlink" title="clear使用："></a>clear使用：</h4><p>两个盒子，box1 box3</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">.div&#123;</span><br><span class="line">           font-size: 50px;</span><br><span class="line">       &#125;</span><br><span class="line">       .box1 &#123;</span><br><span class="line">           width: 200px;</span><br><span class="line">           height: 200px;</span><br><span class="line">           background-color: #bfa;</span><br><span class="line">           float: left;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       .box3 &#123;</span><br><span class="line">           width: 200px;</span><br><span class="line">           height: 200px;</span><br><span class="line">           background-color: orange;</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line">       </span><br><span class="line">   &lt;div class=&quot;box1&quot;&gt;&lt;/div&gt;</span><br><span class="line">   &lt;div class=&quot;box3&quot;&gt;3&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-
-<p>由于box1的浮动，box3会上移，位置发生变化</p>
-<p><img src="https://img-blog.csdnimg.cn/c0d12a6c768746f2bc603f27f099acbc.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_10,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<p>解决某个元素因为其他元素的浮动的影响而改变为止</p>
-<p>可以通过clear属性来清除浮动元素对当前元素的影响</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.box3 &#123;</span><br><span class="line">          width: 200px;</span><br><span class="line">          height: 200px;</span><br><span class="line">          background-color: orange;</span><br><span class="line">          /* 由于box1的浮动，box3会上移，位置发生变化</span><br><span class="line">        解决某个元素因为其他元素的浮动的影响而改变为止</span><br><span class="line">        可以通过clear属性来清除浮动元素对当前元素的影响</span><br><span class="line"></span><br><span class="line">        clear：</span><br><span class="line">        作用：清除浮动元素对当前元素的影响</span><br><span class="line">        可选值：left right both </span><br><span class="line">        both:清楚两侧中最大印象的那侧</span><br><span class="line">        原理：设置清除浮动以后浏览器会自动为元素添加上一个上外边距，</span><br><span class="line">        使其为止不受其他元素的影响 */</span><br><span class="line">         clear: left;</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/cce237309a8f4fdea4ec8d1621b9559b.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_7,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<p>box3不受box1浮动的影响，clear属性不会改变box1，只会改变box3</p>
-<p>clearfix:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">.div&#123;</span><br><span class="line">            font-size: 50px;</span><br><span class="line">        &#125;</span><br><span class="line">        .box1 &#123;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            background-color: #bfa;</span><br><span class="line">            float: left;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        .box2 &#123;</span><br><span class="line">            width: 400px;</span><br><span class="line">            height: 400px;</span><br><span class="line">            background-color: #ff0;</span><br><span class="line">            float: right;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .box3 &#123;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            background-color: orange;</span><br><span class="line">       clear: left;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;box1&quot;&gt;1&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;box2&quot;&gt;2&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;box3&quot;&gt;3&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/9bdba75f6d3e4545830f24100ebb14e3.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clear: right;</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/c25c338b7449480a97fcc0da6dc91c77.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"> </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clear:both; //清除较大的那个</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/a82e16cbc61d44348ab3428fdbb77924.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<h4 id="高度塌陷最终方案："><a href="#高度塌陷最终方案：" class="headerlink" title="高度塌陷最终方案："></a>高度塌陷最终方案：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">  .box1 &#123;</span><br><span class="line">            border: 10px red solid;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"> .box2 &#123;</span><br><span class="line">            width: 100px;</span><br><span class="line">            height: 100px;</span><br><span class="line">            background-color: #bfa;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;box1&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;box2&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;!-- &lt;div class=&quot;box3&quot;&gt;&lt;/div&gt; --&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/81d274fbe42f4d3c94c04891d2ee298a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"><br>在box2中添加float</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">.box2 &#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: #bfa;</span><br><span class="line">    float: left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/833c0075622a45f9821025412d6f40e0.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<p>用box3的高度来撑开box1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.box3 &#123;</span><br><span class="line">         clear: both</span><br><span class="line">     &#125;</span><br><span class="line"> </span><br><span class="line">  &lt;div class=&quot;box1&quot;&gt;</span><br><span class="line">     &lt;div class=&quot;box2&quot;&gt;&lt;/div&gt;</span><br><span class="line">     &lt;div class=&quot;box3&quot;&gt;aaa&lt;/div&gt;</span><br><span class="line"> &lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/1f28ea31126b43bda32410d8571ca143.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<p>或者用after （用css方法）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> .box1::after &#123;</span><br><span class="line">    content: &quot;&quot;;</span><br><span class="line"></span><br><span class="line">    display: block;</span><br><span class="line">    clear: both;</span><br><span class="line">&#125; </span><br><span class="line">/* //::after 是行内元素</span><br><span class="line">所以要把它变成块元素</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/babb329efbda4ac98aa7ef1c460d6a74.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<h4 id="clearfix"><a href="#clearfix" class="headerlink" title="clearfix:"></a>clearfix:</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">  .box1 &#123;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            background-color: #bfa;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .box1::before &#123;</span><br><span class="line">            content: &#x27;&#x27;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .box2 &#123;</span><br><span class="line">            width: 100px;</span><br><span class="line">            height: 100px;</span><br><span class="line">            background-color: orange;</span><br><span class="line">            margin-top: 100px;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;box1&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;box2&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/b90cc7ec3ddd4d73a178f14b2811e2ae.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_7,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.box1::before &#123;</span><br><span class="line">            content: &#x27;&#x27;;</span><br><span class="line">            display: table;</span><br><span class="line">            /* //没有间隔的  解决外边距重叠*/</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/40a59e8cb1d64ab88407ebe94cf9c776.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_7,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/* .clearfix样式可以同时解决高度塌陷和外边距重叠的问题 */</span><br><span class="line">        .clearfix::before,</span><br><span class="line">        .clearfix::after &#123;</span><br><span class="line">            content: &#x27;&#x27;;</span><br><span class="line">            display: table;</span><br><span class="line">            clear: both;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line"> &lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;box1 clearfix&quot; &gt;</span><br><span class="line">        &lt;div class=&quot;box2&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1152,7 +1500,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

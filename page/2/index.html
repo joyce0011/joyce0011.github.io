@@ -145,6 +145,348 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/23/Js%E4%B8%AD%E5%86%85%E5%AD%98%E7%A9%BA%E9%97%B4%E7%90%86%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="乌冬面">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="乌冬面的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/23/Js%E4%B8%AD%E5%86%85%E5%AD%98%E7%A9%BA%E9%97%B4%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">Js理解</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-09-23 20:01:02" itemprop="dateCreated datePublished" datetime="2021-09-23T20:01:02+08:00">2021-09-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-11 18:39:27" itemprop="dateModified" datetime="2021-10-11T18:39:27+08:00">2021-10-11</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="Js理解："><a href="#Js理解：" class="headerlink" title="Js理解："></a>Js理解：</h4><h5 id="调用堆栈篇："><a href="#调用堆栈篇：" class="headerlink" title="调用堆栈篇："></a>调用堆栈篇：</h5><p>对于基本类型，值是存储在栈中的（不含闭包中的变量），对于引用类型，在栈内存放地址放在堆内存中。</p>
+<p>基本类型一共有6种：undefined,null ,boolean，number,string,symbol</p>
+<p>几个问题：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var a = 20;</span><br><span class="line">var b = a;</span><br><span class="line">b = 30;</span><br><span class="line"></span><br><span class="line">// 这时a的值是多少？</span><br><span class="line"></span><br><span class="line">var a = &#123; name: &#x27;前端开发&#x27; &#125;</span><br><span class="line">var b = a;</span><br><span class="line">b.name = &#x27;进阶&#x27;;</span><br><span class="line"></span><br><span class="line">// 这时a.name的值是多少</span><br><span class="line"></span><br><span class="line">var a = &#123; name: &#x27;前端开发&#x27; &#125;</span><br><span class="line">var b = a;</span><br><span class="line">a = null;</span><br><span class="line"></span><br><span class="line">// 这时b的值是多少</span><br></pre></td></tr></table></figure>
+
+<p>答案：20、’进阶’、{name：’前端开发}</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;<span class="attr">n</span>: <span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> b = a;</span><br><span class="line">a.x = a = &#123;<span class="attr">n</span>: <span class="number">2</span>&#125;;</span><br><span class="line"></span><br><span class="line">a.x 	<span class="comment">// 这时 a.x 的值是多少</span></span><br><span class="line">b.x 	<span class="comment">// 这时 b.x 的值是多少</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="C:/Users/zxy/Desktop/微信图片_20210923195323.jpg" alt="微信图片_20210923195323"></p>
+<p>undifined object</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/mx18519142864/article/details/83111207">参考理解1</a></p>
+<p><a target="_blank" rel="noopener" href="https://muyiy.cn/blog/1/1.3.html#%E5%8F%98%E9%87%8F%E7%9A%84%E5%AD%98%E6%94%BE">参考理解2</a></p>
+<p>补充知识点：闭包中的变量是保存在堆内存中的。</p>
+<p>函数 A 弹出调用栈后，函数 A 中的变量这时候是存储在堆上的，所以函数B依旧能引用到函数A中的变量。现在的 JS 引擎可以通过逃逸分析辨别出哪些变量需要存储在堆上，哪些需要存储在栈上。</p>
+<p>从内存来看null和undefined本质的区别是什么？</p>
+<p>给一个全局变量赋值为null，相当于将这个变量的指针对象以及值清空，如果是给对象的属性赋值为null，相当于给这个属性分配了一个空的内存，值为null，js会回收全局变量为null的对象。</p>
+<p>给一个全局变量赋值为undifined，相当于将这个对象的值清空，但是这个对象依旧存在，如果是给对象的属性赋值为undefined，说明这个值为空值。</p>
+<p>扩展：如果声明了一个变量，但是没有对其初始化，这个变量的值就是undefined</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var data;</span><br><span class="line">console.log(data === undefined); //true</span><br></pre></td></tr></table></figure>
+
+<p>对于尚未声明过得变量只能执行一项操作，即使用typeof 操作符检测其数据类型，使用其他的操作都会报错。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//data变量未定义</span><br><span class="line">console.log(typeof data); // &quot;undefined&quot;</span><br><span class="line">console.log(data === undefined); //报错</span><br></pre></td></tr></table></figure>
+
+<p>值null特指对象未设置，与undefined不同，undefined是一个全局对象的一个属性，null是表示缺少的标识，指示变量未指向任何对象。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// foo不存在，它从来没有被定义过或者是初始化过：</span><br><span class="line">foo;</span><br><span class="line">&quot;ReferenceError: foo is not defined&quot;</span><br><span class="line"></span><br><span class="line">// foo现在已经是知存在的，但是它没有类型或者是值：</span><br><span class="line">var foo = null; </span><br><span class="line">console.log(foo);	// null</span><br></pre></td></tr></table></figure>
+
+<h6 id="执行上下文习题："><a href="#执行上下文习题：" class="headerlink" title="执行上下文习题："></a>执行上下文习题：</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">//    1.-------------------------------------------------------------</span><br><span class="line">        console.log(&#x27;gb:&#x27;+ i);</span><br><span class="line">        var i=1</span><br><span class="line">        foo(1)</span><br><span class="line">        function foo(i)&#123;</span><br><span class="line">            if(i==4)&#123;</span><br><span class="line">                return</span><br><span class="line">            &#125;</span><br><span class="line">            console.log(&#x27;foo() begin&#x27; + i);</span><br><span class="line">            foo(i+1)//递归调用：在函数内部调用自己</span><br><span class="line">            console.log(&#x27;foo()end&#x27; + i);</span><br><span class="line">        &#125;</span><br><span class="line">        console.log(&#x27;ge:&#x27; + i);</span><br><span class="line"></span><br><span class="line">    //    2.----------------------------------------</span><br><span class="line">        function a()&#123;&#125;</span><br><span class="line"></span><br><span class="line">            var a;</span><br><span class="line">            console.log(typeof a);</span><br><span class="line"></span><br><span class="line">    // 3.-------------------------------------------</span><br><span class="line"></span><br><span class="line">        if(!(b in window))&#123;</span><br><span class="line">            var b=1;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        console.log(b);</span><br><span class="line"></span><br><span class="line">    // 4.-------------------------------------------</span><br><span class="line"></span><br><span class="line">    var c=1</span><br><span class="line">    function c(c)&#123;</span><br><span class="line">        console.log(c)</span><br><span class="line">    &#125;</span><br><span class="line">    c(2)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/0fac02477d9a43d69daacc8362903f74.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_14,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<h5 id="作用域闭包："><a href="#作用域闭包：" class="headerlink" title="作用域闭包："></a>作用域闭包：</h5><p>作用域链和原型查找时的区别：如果去查找一个普通对象向的属性，但是在当前对象和其原型中都找不到时会返回undefined，但是查找的属性在作用域链中不存在的话就会抛出ReferenceError.</p>
+<p>作用域链的顶端是全局对象，在全局环境中定义的变量就会绑定到全局对象中。</p>
+<p>从实践角度：闭包的概念：</p>
+<p>即使创建他的上写文已经销毁，他仍然存在（比如，内部函数从父函数中返回），</p>
+<p>在代码中引用了自由变量</p>
+<p><a target="_blank" rel="noopener" href="https://muyiy.cn/blog/2/2.1.html#%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE">参考链接</a></p>
+<h6 id="闭包相关习题："><a href="#闭包相关习题：" class="headerlink" title="闭包相关习题："></a>闭包相关习题：</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var name = &quot;The Window&quot;;</span><br><span class="line">        var object = &#123;</span><br><span class="line">            name: &quot;My Object&quot;,</span><br><span class="line">            getNameFunc: function() &#123;</span><br><span class="line">                return function() &#123;</span><br><span class="line">                    return this.name;</span><br><span class="line">                &#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        console.log(object.getNameFunc()())</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">      //The Window</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var name = &quot;The Window&quot;;　　</span><br><span class="line">        var object = &#123;　　　　</span><br><span class="line">            name: &quot;My Object&quot;,</span><br><span class="line">            getNameFunc: function() &#123;</span><br><span class="line">                var that = this;</span><br><span class="line">                return function() &#123;</span><br><span class="line">                    return that.name;</span><br><span class="line">                &#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        console.log(object.getNameFunc()())</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">     // My Object</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/23/%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="乌冬面">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="乌冬面的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/23/%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">算法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-09-23 13:06:30" itemprop="dateCreated datePublished" datetime="2021-09-23T13:06:30+08:00">2021-09-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-29 19:19:35" itemprop="dateModified" datetime="2021-10-29T19:19:35+08:00">2021-10-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><h5 id="重组集合"><a href="#重组集合" class="headerlink" title="重组集合"></a>重组集合</h5><p>将数组[2, 0, 6, 1, 77, 0, 52, 0, 25, 7]中的 0 去掉后，形成一个不包含 0 的新数组。</p>
+<p>思路：</p>
+<p>1.一个新数组来存放筛选后的数据</p>
+<p>2.遍历原来的数据，把不是0的数组添加到新数组中(此时要注意采用数组名 + 索引的格式接收数据)。</p>
+<p>3.新数组里面的个数，用length不断累加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var arr = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7];</span><br><span class="line">        var newArr = [];</span><br><span class="line">        for (var i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">            if (arr[i] != 0) &#123;</span><br><span class="line">                newArr[newArr.length] = arr[i];</span><br><span class="line">               </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        console.log(newArr);</span><br></pre></td></tr></table></figure>
+
+<p>[‘c’, ‘a’, ‘z’, ‘a’, ‘x’, ‘a’, ‘x’, ‘c’, ‘b’] 要求去除数组中重复的元素。</p>
+<p>1.目标： 把旧数组里面不重复的元素选取出来放到新数组中， 重复的元素只保留一个， 放到新数组中去重。<br> 2.核心算法： 我们遍历旧数组， 然后拿着旧数组元素去查询新数组， 如果该元素在新数组里面没有出现过， 我们就添加， 否则不添加。<br> 3.我们怎么知道该元素没有存在？ 利用 新数组.indexOf(数组元素) 如果返回时 - 1 就说明 新数组里面没有改元素<br>封装一个 去重的函数 unique 独一无二的 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function unique(arr) &#123;</span><br><span class="line">           var newArr = [];</span><br><span class="line">           for (var i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">               if (newArr.indexOf(arr[i]) === -1) &#123;</span><br><span class="line">                   newArr.push(arr[i]);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           return newArr;</span><br><span class="line">       &#125;</span><br><span class="line">         var demo = unique([&#x27;c&#x27;, &#x27;a&#x27;, &#x27;z&#x27;, &#x27;a&#x27;, &#x27;x&#x27;, &#x27;a&#x27;, &#x27;x&#x27;, &#x27;c&#x27;, &#x27;b&#x27;])</span><br><span class="line"></span><br><span class="line">        console.log(demo);</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">          // //1.用set数据结构做数组去重</span><br><span class="line">       const s1 = new Set([&#x27;c&#x27;, &#x27;a&#x27;, &#x27;z&#x27;, &#x27;a&#x27;, &#x27;x&#x27;, &#x27;a&#x27;, &#x27;x&#x27;, &#x27;c&#x27;, &#x27;b&#x27;]);//可以把重复的值过滤掉</span><br><span class="line">       const ary = [...s1];   </span><br><span class="line">       console.log(ary);</span><br></pre></td></tr></table></figure>
+
+<h5 id="存在重复元素"><a href="#存在重复元素" class="headerlink" title="存在重复元素"></a>存在重复元素</h5><h4 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h4><p>利用递归函数求1~n的阶乘 1 * 2 * 3 * 4 * ..n</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function fn(n) &#123;</span><br><span class="line">            if (n == 1) &#123;</span><br><span class="line">                return 1;</span><br><span class="line">            &#125;</span><br><span class="line">            return n * fn(n - 1)</span><br><span class="line">        &#125;</span><br><span class="line">        console.log(fn(3)); </span><br></pre></td></tr></table></figure>
+
+
+
+<p>// 利用递归函数求斐波那契数列(兔子序列) 1、1、2、3、5、8、13、21…</p>
+<p>​    // 用户输入一个数字 n 就可以求出 这个数字对应的兔子序列值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function fb(n) &#123;</span><br><span class="line">         if (n == 1 || n == 2) &#123;</span><br><span class="line">             return 1;</span><br><span class="line">         &#125; else return fb(n - 1) + fb(n - 2);</span><br><span class="line">     &#125;</span><br><span class="line">     console.log(fb(3));</span><br><span class="line">     console.log(fb(6));</span><br></pre></td></tr></table></figure>
+
+<p>线性结构非线性结构区别：是否是一对一</p>
+<h4 id="稀疏数组："><a href="#稀疏数组：" class="headerlink" title="稀疏数组："></a>稀疏数组：</h4><p>一个数组中大部分为0，或者为同一个值的数组，可以使用稀疏数组来保存该数组</p>
+<p>稀疏数组的处理方法是：</p>
+<p>1.记录数组一共有几行激烈，有多少个不同的值</p>
+<p>2.把具有不同值的元素行列及值记录在一个小规模的数组中，从而缩小程序的规模</p>
+<p>二维数组和稀疏数组之间的相互转化：</p>
+<p>二维数组转稀疏数组：</p>
+<p>1.遍历原始的二维数组，得到有效数组的个数sum</p>
+<p>2.根据sum创建稀疏数组spaseArr int[sum+1] [3]</p>
+<p>3.将二维数组的有效数据存入到稀疏数组中</p>
+<p>稀疏数组转二维数组：</p>
+<p>1.读取稀疏数组的第一行，根据第一行的数据创建原始的二维数组 </p>
+<p>2.再去取稀疏数组后几行的数据并且赋值给二维数组即可</p>
+<p>顺环队列：</p>
+<p><img src="C:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211027095401070.png" alt="image-20211027095401070"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/22/BFC%E5%BA%94%E7%94%A8%EF%BC%8C%E7%90%86%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="乌冬面">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="乌冬面的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/22/BFC%E5%BA%94%E7%94%A8%EF%BC%8C%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">BFC应用，理解</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-09-22 19:26:38 / 修改时间：21:31:49" itemprop="dateCreated datePublished" datetime="2021-09-22T19:26:38+08:00">2021-09-22</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="BFC应用，理解"><a href="#BFC应用，理解" class="headerlink" title="BFC应用，理解"></a>BFC应用，理解</h3><h4 id="高度塌陷问题"><a href="#高度塌陷问题" class="headerlink" title="高度塌陷问题"></a>高度塌陷问题</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">        .outer &#123;</span><br><span class="line">            border: 10px red solid;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .inner &#123;</span><br><span class="line">            width: 100px;</span><br><span class="line">            height: 100px;</span><br><span class="line">            background-color: #bfa;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;body&gt;</span><br><span class="line"></span><br><span class="line">    &lt;div class=&quot;outer&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;inner&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div style=&quot;width:100px ;height:100px;background-color:yellow;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/ab1426c425b844619ef53923391d23ae.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_14,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p>但是当在子元素变成浮动以后，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.inner &#123;</span><br><span class="line">           width: 100px;</span><br><span class="line">           height: 100px;</span><br><span class="line">           background-color: #bfa;</span><br><span class="line"></span><br><span class="line">           float: left;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+<p>会出现如下情况：<br><img src="https://img-blog.csdnimg.cn/0a3569b38d404e74b4f2a59ac731ce31.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_14,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p>即出现高度塌陷问题：原因：</p>
+<p>在浮动布局中，父元素的高度默认是被子元素撑开的</p>
+<p>当子元素浮动后，其会完全脱离文档流，子元素从文档流中脱离</p>
+<p>将会无法撑起父元素的高度，导致父元素高度丢失</p>
+<p>父元素高度丢失以后其下的元素会自动上移，导致页面的布局混乱</p>
+<h5 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h5><h6 id="1-给父元素一个固定的高度，"><a href="#1-给父元素一个固定的高度，" class="headerlink" title="1.给父元素一个固定的高度，"></a>1.给父元素一个固定的高度，</h6><p>但是此方法不能从根本上解决问题，本来目的就是大块能跟着小块的大小一起增加或减少，如果直接定义了高度那么这就没有了之前添加float的意义</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.outer &#123;</span><br><span class="line">            border: 10px red solid;</span><br><span class="line">             height: 100px; </span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="2-运用BFC-块格式化环境"><a href="#2-运用BFC-块格式化环境" class="headerlink" title="2.运用BFC 块格式化环境"></a>2.运用BFC 块格式化环境</h6><p>1.设置元素的浮动 </p>
+<p>​      float :left;  缺点：脱离文档流所以宽度也没有了（不推荐）（黄色块块消失）</p>
+<p>给父元素添加后的效果：<br><img src="https://img-blog.csdnimg.cn/2efb6c9f8d8c4b428a45fc4ccc3a3788.png#pic_center" alt="在这里插入图片描述"></p>
+<p>​      2.将元素设置元行内块元素</p>
+<p>​      display:inline-block ; 行内块不适合给父元素且宽度也没有了（不推荐）<br><img src="https://img-blog.csdnimg.cn/14e8c49b454c4f80b8fbe837b33a32f9.png#pic_center" alt="在这里插入图片描述"><br>​      3.将元素的overflow设置为一个非visible的值</p>
+<p>​      overflow：hidden 或者auto 此方法较为常用</p>
+<p>​      overflow 属性规定当内容溢出元素框时发生的事情。<br><img src="https://img-blog.csdnimg.cn/9cfd3ed27f59417caedbfe5df5eaff97.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_17,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="理解：什么是BFC？"><a href="#理解：什么是BFC？" class="headerlink" title="理解：什么是BFC？"></a>理解：什么是BFC？</h3><p> 他是一个css中的隐含属性，可以为一个元素开启bfc</p>
+<p>​      开启bfc该元素会变成一个独立的布局区域</p>
+<p>​      开启bfc后的特点：</p>
+<p>​      1.不会被浮动元素所覆盖</p>
+<p>​      2.外边距不会重叠</p>
+<p>​      3.可以包含浮动的子元素</p>
+<p>​      开启的方式：</p>
+<p>​      1.设置元素的浮动 </p>
+<p>​      float :left;  缺点：脱离文档流所以宽度也没有了（不推荐）</p>
+<p>​      2.将元素设置元行内块元素</p>
+<p>​      display:inline-block ; 行内块不适合给父元素且宽度也没有了（不推荐）</p>
+<p>​      3.将元素的overflow设置为一个非visible的值</p>
+<p>​      overflow：hidden 或者auto 此方法较为常用</p>
+<p>​      overflow 属性规定当内容溢出元素框时发生的事情。</p>
+<h3 id="深入理解和训练："><a href="#深入理解和训练：" class="headerlink" title="深入理解和训练："></a>深入理解和训练：</h3><h4 id="1-二个盒子，不希望box2被box1覆盖"><a href="#1-二个盒子，不希望box2被box1覆盖" class="headerlink" title="1.二个盒子，不希望box2被box1覆盖"></a>1.二个盒子，不希望box2被box1覆盖</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.box1 &#123;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            background-color: #bfa;</span><br><span class="line">            float: left;</span><br><span class="line">        &#125;</span><br><span class="line"> .box2 &#123;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            background-color: orange;</span><br><span class="line">           </span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        &lt;div class=&quot;box1&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;box2&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>box2被box1覆盖<br><img src="https://img-blog.csdnimg.cn/5d9be056b4a14a64bbc309e3b0578490.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_8,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.box2 &#123;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            background-color: orange;</span><br><span class="line">           /* 不希望box2被box1覆盖则：*/</span><br><span class="line">            overflow: hidden; </span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/4b392d6dada94ea1a14dd9d134b96b49.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_12,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<h4 id="2-两个盒子box1和box3-希望box3往下走"><a href="#2-两个盒子box1和box3-希望box3往下走" class="headerlink" title="2.两个盒子box1和box3 希望box3往下走"></a>2.两个盒子box1和box3 希望box3往下走</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">.box1 &#123;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            background-color: #bfa;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">.box3 &#123;</span><br><span class="line">            width: 100px;</span><br><span class="line">            height: 100px;</span><br><span class="line">            background-color: yellow;</span><br><span class="line">            margin-top: 100px;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        &lt;div class=&quot;box1&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;box3&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>出现外边距重叠：子元素和父元素外边距重叠<br><img src="https://img-blog.csdnimg.cn/89b689ddf9a141d7b7d4536e392b78c8.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_10,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p>解决方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.box1 &#123;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            background-color: #bfa;</span><br><span class="line">             /* 出现外边距重叠此时可以*/</span><br><span class="line">            overflow: hidden; </span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/bc9e64461f9447c2ba7de0c6074a574c.png#pic_center" alt="在这里插入图片描述"></p>
+<h4 id="clear使用："><a href="#clear使用：" class="headerlink" title="clear使用："></a>clear使用：</h4><p>两个盒子，box1 box3</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">.div&#123;</span><br><span class="line">           font-size: 50px;</span><br><span class="line">       &#125;</span><br><span class="line">       .box1 &#123;</span><br><span class="line">           width: 200px;</span><br><span class="line">           height: 200px;</span><br><span class="line">           background-color: #bfa;</span><br><span class="line">           float: left;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       .box3 &#123;</span><br><span class="line">           width: 200px;</span><br><span class="line">           height: 200px;</span><br><span class="line">           background-color: orange;</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line">       </span><br><span class="line">   &lt;div class=&quot;box1&quot;&gt;&lt;/div&gt;</span><br><span class="line">   &lt;div class=&quot;box3&quot;&gt;3&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>由于box1的浮动，box3会上移，位置发生变化</p>
+<p><img src="https://img-blog.csdnimg.cn/c0d12a6c768746f2bc603f27f099acbc.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_10,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p>解决某个元素因为其他元素的浮动的影响而改变为止</p>
+<p>可以通过clear属性来清除浮动元素对当前元素的影响</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.box3 &#123;</span><br><span class="line">          width: 200px;</span><br><span class="line">          height: 200px;</span><br><span class="line">          background-color: orange;</span><br><span class="line">          /* 由于box1的浮动，box3会上移，位置发生变化</span><br><span class="line">        解决某个元素因为其他元素的浮动的影响而改变为止</span><br><span class="line">        可以通过clear属性来清除浮动元素对当前元素的影响</span><br><span class="line"></span><br><span class="line">        clear：</span><br><span class="line">        作用：清除浮动元素对当前元素的影响</span><br><span class="line">        可选值：left right both </span><br><span class="line">        both:清楚两侧中最大印象的那侧</span><br><span class="line">        原理：设置清除浮动以后浏览器会自动为元素添加上一个上外边距，</span><br><span class="line">        使其为止不受其他元素的影响 */</span><br><span class="line">         clear: left;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/cce237309a8f4fdea4ec8d1621b9559b.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_7,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p>box3不受box1浮动的影响，clear属性不会改变box1，只会改变box3</p>
+<p>clearfix:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">.div&#123;</span><br><span class="line">            font-size: 50px;</span><br><span class="line">        &#125;</span><br><span class="line">        .box1 &#123;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            background-color: #bfa;</span><br><span class="line">            float: left;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        .box2 &#123;</span><br><span class="line">            width: 400px;</span><br><span class="line">            height: 400px;</span><br><span class="line">            background-color: #ff0;</span><br><span class="line">            float: right;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .box3 &#123;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            background-color: orange;</span><br><span class="line">       clear: left;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;box1&quot;&gt;1&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;box2&quot;&gt;2&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;box3&quot;&gt;3&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/9bdba75f6d3e4545830f24100ebb14e3.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clear: right;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/c25c338b7449480a97fcc0da6dc91c77.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"> </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clear:both; //清除较大的那个</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/a82e16cbc61d44348ab3428fdbb77924.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<h4 id="高度塌陷最终方案："><a href="#高度塌陷最终方案：" class="headerlink" title="高度塌陷最终方案："></a>高度塌陷最终方案：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">  .box1 &#123;</span><br><span class="line">            border: 10px red solid;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"> .box2 &#123;</span><br><span class="line">            width: 100px;</span><br><span class="line">            height: 100px;</span><br><span class="line">            background-color: #bfa;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;box1&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;box2&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;!-- &lt;div class=&quot;box3&quot;&gt;&lt;/div&gt; --&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/81d274fbe42f4d3c94c04891d2ee298a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"><br>在box2中添加float</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">.box2 &#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: #bfa;</span><br><span class="line">    float: left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/833c0075622a45f9821025412d6f40e0.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p>用box3的高度来撑开box1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.box3 &#123;</span><br><span class="line">         clear: both</span><br><span class="line">     &#125;</span><br><span class="line"> </span><br><span class="line">  &lt;div class=&quot;box1&quot;&gt;</span><br><span class="line">     &lt;div class=&quot;box2&quot;&gt;&lt;/div&gt;</span><br><span class="line">     &lt;div class=&quot;box3&quot;&gt;aaa&lt;/div&gt;</span><br><span class="line"> &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/1f28ea31126b43bda32410d8571ca143.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p>或者用after （用css方法）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> .box1::after &#123;</span><br><span class="line">    content: &quot;&quot;;</span><br><span class="line"></span><br><span class="line">    display: block;</span><br><span class="line">    clear: both;</span><br><span class="line">&#125; </span><br><span class="line">/* //::after 是行内元素</span><br><span class="line">所以要把它变成块元素</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/babb329efbda4ac98aa7ef1c460d6a74.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<h4 id="clearfix"><a href="#clearfix" class="headerlink" title="clearfix:"></a>clearfix:</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">  .box1 &#123;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            background-color: #bfa;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .box1::before &#123;</span><br><span class="line">            content: &#x27;&#x27;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .box2 &#123;</span><br><span class="line">            width: 100px;</span><br><span class="line">            height: 100px;</span><br><span class="line">            background-color: orange;</span><br><span class="line">            margin-top: 100px;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;box1&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;box2&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/b90cc7ec3ddd4d73a178f14b2811e2ae.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_7,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.box1::before &#123;</span><br><span class="line">            content: &#x27;&#x27;;</span><br><span class="line">            display: table;</span><br><span class="line">            /* //没有间隔的  解决外边距重叠*/</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/40a59e8cb1d64ab88407ebe94cf9c776.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAd2VpeGluXzQ0MTgwOTc5,size_7,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/* .clearfix样式可以同时解决高度塌陷和外边距重叠的问题 */</span><br><span class="line">        .clearfix::before,</span><br><span class="line">        .clearfix::after &#123;</span><br><span class="line">            content: &#x27;&#x27;;</span><br><span class="line">            display: table;</span><br><span class="line">            clear: both;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line"> &lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;box1 clearfix&quot; &gt;</span><br><span class="line">        &lt;div class=&quot;box2&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/22/promise%20%E7%AC%94%E8%AF%95%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -450,7 +792,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/09/21/%E4%BB%8E%E6%96%B0%E5%BC%80%E5%A7%8B%EF%BC%88%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%89/" class="post-title-link" itemprop="url">从新开始（前端学习记录 2021.9.23更新）</a>
+            <a href="/2021/09/21/%E4%BB%8E%E6%96%B0%E5%BC%80%E5%A7%8B%EF%BC%88%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%89/" class="post-title-link" itemprop="url">从新开始（前端学习记录）</a>
         </h2>
 
         <div class="post-meta">
@@ -467,7 +809,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-23 21:21:44" itemprop="dateModified" datetime="2021-09-23T21:21:44+08:00">2021-09-23</time>
+                <time title="修改时间：2021-11-09 18:37:40" itemprop="dateModified" datetime="2021-11-09T18:37:40+08:00">2021-11-09</time>
               </span>
 
           
@@ -732,7 +1074,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
