@@ -145,6 +145,72 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/09/JS%20TU%20%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%80%9D%E8%80%83%E5%8F%8A%E5%BB%B6%E7%94%9F%EF%BC%88%E8%87%AA%E7%94%A8%E5%9B%9E%E9%A1%BE%E7%89%88%E7%B2%BE%E7%AE%80%E7%89%88%EF%BC%89first/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="乌冬面">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="乌冬面的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/09/09/JS%20TU%20%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%80%9D%E8%80%83%E5%8F%8A%E5%BB%B6%E7%94%9F%EF%BC%88%E8%87%AA%E7%94%A8%E5%9B%9E%E9%A1%BE%E7%89%88%E7%B2%BE%E7%AE%80%E7%89%88%EF%BC%89first/" class="post-title-link" itemprop="url">JS TU 的学习思考及延生（自用回顾版）first 2022.9.9</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-09-09 22:25:07 / 修改时间：22:26:27" itemprop="dateCreated datePublished" datetime="2022-09-09T22:25:07+08:00">2022-09-09</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="JS-TU-的学习思考及延生（自用回顾版）"><a href="#JS-TU-的学习思考及延生（自用回顾版）" class="headerlink" title="JS TU 的学习思考及延生（自用回顾版）"></a>JS TU 的学习思考及延生（自用回顾版）</h2><p>1.关于number和string学习中<br>number+string-&gt;string<br><img src="https://img-blog.csdnimg.cn/849864dca8d04f08b2754ba0415f7753.png" alt="在这里插入图片描述"><br>解决方式：parentInt来是的最终的变量<br><img src="https://img-blog.csdnimg.cn/c5c2555c2de9425a8366ada72240e2a0.png" alt="在这里插入图片描述"></p>
+<p>2.how many data types ?<br>answer:7<br>string,number,object,undefined,symbol,boolean,null</p>
+<p>3.reference&amp;value的区别：<br><img src="https://img-blog.csdnimg.cn/4332be835ff946bd814fee9cf447e528.png" alt="在这里插入图片描述"><br>person2直接修改了object可以通过{…}的方式:just copy the values,not reference to a person job<br><img src="https://img-blog.csdnimg.cn/5311c082a5974e909334ce13c1a8fc30.png" alt="在这里插入图片描述"><br>3.Global scope VS Local scope<br>key:1.与C等语言不同js没有块级作用域的说法，if语句中出现的变量会填充到当前的执行环境中<br>2.如果不声明变量如var 操作，在function(){}中变量可以在外部访问出现如下图所示的情况</p>
+<p><img src="https://img-blog.csdnimg.cn/54e2ecb941c4450aada5efc684c818d0.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/465ff4df2e214014903c6cbf539cf66f.png" alt="在这里插入图片描述"><br>4.power array methods<br>foreach ：not return array<br>map：return new array ,not change size of origin array 很适用于HTMLelement:docment.body.innerHTML<br>filter:return new array ,base on condition<br>find:return single instance</p>
+<p>5.如何在{}添加内容<br><img src="https://img-blog.csdnimg.cn/63ecfe7b5c6d41348db764f04e0cf801.png" alt="在这里插入图片描述"><br>6.统计每个对象出现的相应所需属性的次数：reduce方法<br>主要注意要判别从无到有的过程<br><img src="https://img-blog.csdnimg.cn/ed5e876af8a24b71b624d9a9ea17f152.png" alt="在这里插入图片描述"><br><strong>DOM篇</strong></p>
+<p>1.getElementsByTagname()  &amp; querySelectorAll() 区别：<br>getElementsByTagname()：HTMLCollection[ , ]-&gt; array-like object<br>可以得到的：index,length property 不能：不能适用array method；<br>解决方法：可以使用[…items]来用array methods<br>querySelectorAll()：NodeList :objects are collections of nodes ,can run for foreach<br>2.nodeValue 和textContent 的区别：<br><a target="_blank" rel="noopener" href="http://cn.voidcc.com/question/p-hnnrsuzf-yw.html">参考这个</a><br><img src="https://img-blog.csdnimg.cn/d1207ccd5f7f4c8395450ac0f4331296.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/91d03ae43cca41348fe7b3b871c225ee.png" alt="在这里插入图片描述"></p>
+<p>3.className &amp; classList 区别：<br>calssName使用多次会产生：overwrite的后果，classList不会，可以动态的添加</p>
+<p>4.loadevent 和DOMContentLoaded区别：DOMContentLoaded立马执行不会等所有的资源都load，但是前者会等所有的资源都load了再执行</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/02/%E6%95%B0%E7%BB%84%E7%AC%94%E8%AE%B0%E4%BB%A3%E7%A0%81%E6%B1%87%E6%80%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2107,243 +2173,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/05/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9B%B8%E5%85%B3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="乌冬面">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="乌冬面的日常">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/05/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9B%B8%E5%85%B3/" class="post-title-link" itemprop="url">数据结构相关</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-10-05 22:32:27" itemprop="dateCreated datePublished" datetime="2021-10-05T22:32:27+08:00">2021-10-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-14 10:22:52" itemprop="dateModified" datetime="2021-11-14T10:22:52+08:00">2021-11-14</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="链表："><a href="#链表：" class="headerlink" title="链表："></a>链表：</h3><h4 id="1-删除链表中的节点："><a href="#1-删除链表中的节点：" class="headerlink" title="1.删除链表中的节点："></a>1.删除链表中的节点：</h4><p>方法：与下一个节点交换：</p>
-<p><img src="C:\Users\zxy\AppData\Roaming\Typora\typora-user-images\image-20211005203403147.png" alt="image-20211005203403147"></p>
-<p><img src="C:\Users\zxy\AppData\Roaming\Typora\typora-user-images\image-20211005203217330.png" alt="image-20211005203217330"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">`/**</span><br><span class="line"></span><br><span class="line"> \* Definition for singly-linked list.</span><br><span class="line"></span><br><span class="line"> \* public class ListNode &#123;</span><br><span class="line"></span><br><span class="line"> \*   int val;</span><br><span class="line"></span><br><span class="line"> \*   ListNode next;</span><br><span class="line"></span><br><span class="line"> \*   ListNode(int x) &#123; val = x; &#125;</span><br><span class="line"></span><br><span class="line"> \* &#125;</span><br><span class="line"></span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line"></span><br><span class="line">  public void deleteNode(ListNode node) &#123;</span><br><span class="line"></span><br><span class="line">​    node.val=node.next.val;</span><br><span class="line"></span><br><span class="line">​    node.next=node.next.next;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;`</span><br></pre></td></tr></table></figure>
-
-<p>时间和空间复杂度都是：O(1)<em>O</em>(1)。</p>
-<h4 id="2-反转链表"><a href="#2-反转链表" class="headerlink" title="2.反转链表"></a>2.反转链表</h4><p>迭代法：</p>
-<p>重点：反转结点</p>
-<p>需要定义三个指针</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ListNode next=curr.next;</span><br><span class="line"></span><br><span class="line">curr.next=prev;</span><br><span class="line"></span><br><span class="line">prev=curr;</span><br><span class="line"></span><br><span class="line">curr=next;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public ListNode reverseList(ListNode head) &#123;</span><br><span class="line">    ListNode prev = null;</span><br><span class="line">    ListNode curr = head;</span><br><span class="line">    while (curr != null) &#123;</span><br><span class="line">        ListNode next = curr.next;</span><br><span class="line">        curr.next = prev;</span><br><span class="line">        prev = curr;</span><br><span class="line">        curr = next;</span><br><span class="line">    &#125;</span><br><span class="line">    return prev;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<p>递归法：</p>
-<p>讲后一个结点指向前一个结点，前一个结点指向null</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">head.next.next=head;</span><br><span class="line"></span><br><span class="line">head.next=null;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public ListNode reverseList(ListNode head) &#123;</span><br><span class="line">    // 1. 递归终止条件</span><br><span class="line">    if (head == null || head.next == null) &#123;</span><br><span class="line">        return head;</span><br><span class="line">    &#125;</span><br><span class="line">    ListNode p = reverseList(head.next);</span><br><span class="line">    head.next.next = head;</span><br><span class="line">    head.next = null;</span><br><span class="line">    return p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li></li>
-</ul>
-<h4 id="3-删除链表的倒数第n个节点"><a href="#3-删除链表的倒数第n个节点" class="headerlink" title="3.删除链表的倒数第n个节点"></a>3.删除链表的倒数第n个节点</h4><p>1.暴力拆解法：遍历两次</p>
-<p>2.栈，通过先进后出原则。淡出栈的第n个结点就是需要删除的节点</p>
-<ul>
-<li>时间复杂度：O(L)<em>O</em>(<em>L</em>)，其中 L<em>L</em> 是链表的长度。</li>
-<li>空间复杂度：O(L)<em>O</em>(<em>L</em>)，其中 L<em>L</em> 是链表的长度。主要为栈的开销。</li>
-</ul>
-<p>3.双指针</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public ListNode removeNthFromEnd(ListNode head, int n) &#123;</span><br><span class="line">        ListNode dummy = new ListNode(0, head);</span><br><span class="line">        ListNode first = head;</span><br><span class="line">        ListNode second = dummy;</span><br><span class="line">        for (int i = 0; i &lt; n; ++i) &#123;</span><br><span class="line">            first = first.next;</span><br><span class="line">        &#125;</span><br><span class="line">        while (first != null) &#123;</span><br><span class="line">            first = first.next;</span><br><span class="line">            second = second.next;</span><br><span class="line">        &#125;</span><br><span class="line">        second.next = second.next.next;</span><br><span class="line">        ListNode ans = dummy.next;</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>时间复杂度：O(L)<em>O</em>(<em>L</em>)，其中 L<em>L</em> 是链表的长度。</li>
-<li>空间复杂度：O(1)<em>O</em>(1)。</li>
-</ul>
-<h4 id="4-合并两个有序链表"><a href="#4-合并两个有序链表" class="headerlink" title="4.合并两个有序链表"></a>4.合并两个有序链表</h4><h4 id=""><a href="#" class="headerlink" title=""></a><img src="C:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211011150855512.png" alt="image-20211011150855512"></h4><p>递归：</p>
-<p>思路：</p>
-<p>判断l1和l2哪一个链表的头结点值更小，递归决定下一个添加到结果里的结点</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public ListNode mergeTwoLists(ListNode l1, ListNode l2) &#123;</span><br><span class="line">        if (l1 == null) &#123;</span><br><span class="line">            return l2;</span><br><span class="line">        &#125; else if (l2 == null) &#123;</span><br><span class="line">            return l1;</span><br><span class="line">        &#125; else if (l1.val &lt; l2.val) &#123;</span><br><span class="line">            l1.next = mergeTwoLists(l1.next, l2);</span><br><span class="line">            return l1;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            l2.next = mergeTwoLists(l1, l2.next);</span><br><span class="line">            return l2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>时间复杂度：O(n + m)O(n+m)，其中 nn 和 mm 分别为两个链表的长度。因为每次调用递归都会去掉 l1 或者 l2 的头节点（直到至少有一个链表为空），函数 mergeTwoList 至多只会递归调用每个节点一次。因此，时间复杂度取决于合并后的链表长度，即 O(n+m)O(n+m)。</p>
-<p>空间复杂度：O(n + m)O(n+m)，其中 nn 和 mm 分别为两个链表的长度。递归调用 mergeTwoLists 函数时需要消耗栈空间，栈空间的大小取决于递归调用的深度。结束递归调用时 mergeTwoLists 函数最多调用 n+mn+m 次，因此空间复杂度为 O(n+m)O(n+m)。</p>
-<p>迭代：</p>
-<p>判断l1 l2 哪一个头结点的值更小，将较小值的结点添加到结果里，当一个结点被添加到结果里之后，将对应链表中的结点向后移一位。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public ListNode mergeTwoLists(ListNode l1, ListNode l2) &#123;</span><br><span class="line">        ListNode prehead = new ListNode(-1);</span><br><span class="line"></span><br><span class="line">        ListNode prev = prehead;</span><br><span class="line">        while (l1 != null &amp;&amp; l2 != null) &#123;</span><br><span class="line">            if (l1.val &lt;= l2.val) &#123;</span><br><span class="line">                prev.next = l1;</span><br><span class="line">                l1 = l1.next;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                prev.next = l2;</span><br><span class="line">                l2 = l2.next;</span><br><span class="line">            &#125;</span><br><span class="line">            prev = prev.next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // 合并后 l1 和 l2 最多只有一个还未被合并完，我们直接将链表末尾指向未合并完的链表即可</span><br><span class="line">        prev.next = l1 == null ? l2 : l1;</span><br><span class="line"></span><br><span class="line">        return prehead.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>时间复杂度：O(n + m)O(n+m)，其中 nn 和 mm 分别为两个链表的长度。因为每次循环迭代中，l1 和 l2 只有一个元素会被放进合并链表中， 因此 while 循环的次数不会超过两个链表的长度之和。所有其他操作的时间复杂度都是常数级别的，因此总的时间复杂度为 O(n+m)O(n+m)。</p>
-<h4 id="5-回文链表"><a href="#5-回文链表" class="headerlink" title="5.回文链表"></a>5.回文链表</h4><h5 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="C:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211011152546795.png" alt="image-20211011152546795"></h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">找到前半部分链表的尾节点。</span><br><span class="line">反转后半部分链表。</span><br><span class="line">判断是否回文。</span><br><span class="line">恢复链表。</span><br><span class="line">返回结果。</span><br><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">    public boolean isPalindrome(ListNode head) &#123;</span><br><span class="line">        if (head == null) &#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // 找到前半部分链表的尾节点并反转后半部分链表</span><br><span class="line">        ListNode firstHalfEnd = endOfFirstHalf(head);</span><br><span class="line">        ListNode secondHalfStart = reverseList(firstHalfEnd.next);</span><br><span class="line"></span><br><span class="line">        // 判断是否回文</span><br><span class="line">        ListNode p1 = head;</span><br><span class="line">        ListNode p2 = secondHalfStart;</span><br><span class="line">        boolean result = true;</span><br><span class="line">        while (result &amp;&amp; p2 != null) &#123;</span><br><span class="line">            if (p1.val != p2.val) &#123;</span><br><span class="line">                result = false;</span><br><span class="line">            &#125;</span><br><span class="line">            p1 = p1.next;</span><br><span class="line">            p2 = p2.next;</span><br><span class="line">        &#125;        </span><br><span class="line"></span><br><span class="line">        // 还原链表并返回结果</span><br><span class="line">        firstHalfEnd.next = reverseList(secondHalfStart);</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private ListNode reverseList(ListNode head) &#123;</span><br><span class="line">        ListNode prev = null;</span><br><span class="line">        ListNode curr = head;</span><br><span class="line">        while (curr != null) &#123;</span><br><span class="line">            ListNode nextTemp = curr.next;</span><br><span class="line">            curr.next = prev;</span><br><span class="line">            prev = curr;</span><br><span class="line">            curr = nextTemp;</span><br><span class="line">        &#125;</span><br><span class="line">        return prev;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private ListNode endOfFirstHalf(ListNode head) &#123;</span><br><span class="line">        ListNode fast = head;</span><br><span class="line">        ListNode slow = head;</span><br><span class="line">        while (fast.next != null &amp;&amp; fast.next.next != null) &#123;</span><br><span class="line">            fast = fast.next.next;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">        &#125;</span><br><span class="line">        return slow;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="6-环形链表"><a href="#6-环形链表" class="headerlink" title="6.环形链表"></a>6.环形链表</h4><p><img src="C:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211011152647663.png" alt="image-20211011152647663"></p>
-<h3 id="二叉树："><a href="#二叉树：" class="headerlink" title="二叉树："></a>二叉树：</h3><h4 id="二叉树的最大深度："><a href="#二叉树的最大深度：" class="headerlink" title="二叉树的最大深度："></a>二叉树的最大深度：</h4><p><img src="C:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211029094007384.png" alt="image-20211029094007384"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">深度优先搜索：</span><br><span class="line">原理：递归计算出左子树和右子树的最大深度</span><br><span class="line">class Solution &#123;</span><br><span class="line">    public int maxDepth(TreeNode root) &#123;</span><br><span class="line">        if (root == null) &#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            int leftHeight = maxDepth(root.left);</span><br><span class="line">            int rightHeight = maxDepth(root.right);</span><br><span class="line">            return Math.max(leftHeight, rightHeight) + 1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="验证二叉搜索树："><a href="#验证二叉搜索树：" class="headerlink" title="验证二叉搜索树："></a>验证二叉搜索树：</h4><p><img src="C:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211029095518521.png" alt="image-20211029095518521"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">递归法：在递归调用左子树时，我们需要把上界 upper 改为 root.val，即调用 helper(root.left, lower, root.val)，因为左子树里所有节点的值均小于它的根节点的值。同理递归调用右子树时，我们需要把下界 lower 改为 root.val，即调用 helper(root.right, root.val, upper)。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">    public boolean isValidBST(TreeNode root) &#123;</span><br><span class="line">        return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public boolean isValidBST(TreeNode node, long lower, long upper) &#123;</span><br><span class="line">        if (node == null) &#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">        if (node.val &lt;= lower || node.val &gt;= upper) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        return isValidBST(node.left, lower, node.val) &amp;&amp; isValidBST(node.right, node.val, upper);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="对称二叉树："><a href="#对称二叉树：" class="headerlink" title="对称二叉树："></a>对称二叉树：</h4><p><img src="C:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211029095712545.png" alt="image-20211029095712545"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">pp 指针和 qq 指针一开始都指向这棵树的根，随后 pp 右移时，qq 左移，pp 左移时，qq 右移。每次检查当前 pp 和 qq 节点的值是否相等，如果相等再判断左右子树是否对称。</span><br><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">    public boolean isSymmetric(TreeNode root) &#123;</span><br><span class="line">        return check(root, root);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public boolean check(TreeNode p, TreeNode q) &#123;</span><br><span class="line">        if (p == null &amp;&amp; q == null) &#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">        if (p == null || q == null) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        return p.val == q.val &amp;&amp; check(p.left, q.right) &amp;&amp; check(p.right, q.left);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>DFS (深度优先搜索) BFS（广度优先搜索）：dfs无法层序遍历和最短路径</p>
-<h4 id="二叉树的层序遍历："><a href="#二叉树的层序遍历：" class="headerlink" title="二叉树的层序遍历："></a>二叉树的层序遍历：</h4><p><img src="C:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211030102548659.png" alt="image-20211030102548659"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">while:将当前层的所有结点出队列，下一层的所有结点入队列</span><br><span class="line"></span><br><span class="line">public List&lt;List&lt;Integer&gt;&gt; levelOrder(TreeNode root) &#123;</span><br><span class="line">    List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    Queue&lt;TreeNode&gt; queue = new ArrayDeque&lt;&gt;();</span><br><span class="line">    if (root != null) &#123;</span><br><span class="line">        queue.add(root);</span><br><span class="line">    &#125;</span><br><span class="line">    while (!queue.isEmpty()) &#123;</span><br><span class="line">        int n = queue.size();</span><br><span class="line">        List&lt;Integer&gt; level = new ArrayList&lt;&gt;();</span><br><span class="line">        for (int i = 0; i &lt; n; i++) &#123; </span><br><span class="line">            TreeNode node = queue.poll();</span><br><span class="line">            level.add(node.val);</span><br><span class="line">            if (node.left != null) &#123;</span><br><span class="line">                queue.add(node.left);</span><br><span class="line">            &#125;</span><br><span class="line">            if (node.right != null) &#123;</span><br><span class="line">                queue.add(node.right);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        res.add(level);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-level-order-traversal/solution/bfs-de-shi-yong-chang-jing-zong-jie-ceng-xu-bian-l/">参考</a></p>
-<p>将有序数组转换为二叉搜索树</p>
-<p><img src="C:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211030103040991.png" alt="image-20211030103040991"></p>
-<h3 id="数组："><a href="#数组：" class="headerlink" title="数组："></a>数组：</h3><p>给你两个按 非递减顺序 排列的整数数组 nums1 和 nums2，另有两个整数 m 和 n ，分别表示 nums1 和 nums2 中的元素数目。</p>
-<p>请你 合并 nums2 到 nums1 中，使合并后的数组同样按 非递减顺序 排列。</p>
-<p><img src="C:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211103135644828.png" alt="image-20211103135644828"></p>
-<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/merge-sorted-array/">leetcode88 合并两个有序数组</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let len1=m-1;</span><br><span class="line">      len2=n-1;</span><br><span class="line">      len=m+n-1;</span><br><span class="line">      while(len2&gt;=0)&#123;</span><br><span class="line">       if(len1&lt;0)&#123;</span><br><span class="line">       nums1[len--]=nums2[len2--];</span><br><span class="line">       continue</span><br><span class="line">       &#125;</span><br><span class="line">   nums1[len--]=nums1[len1] &gt;=nums2[len2] ? nums1[len1--]:nums2[len2--]</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
-
-<p>另外一种算法:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var merge = function(nums1, m, nums2, n) &#123;</span><br><span class="line">    nums1.splice(m);</span><br><span class="line">    nums2.splice(n); </span><br><span class="line">    nums1.push(...nums2);</span><br><span class="line">    nums1.sort((a, b) =&gt; a - b)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="两数之和："><a href="#两数之和：" class="headerlink" title="两数之和："></a>两数之和：</h4><p><img src="C:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211103143523307.png" alt="image-20211103143523307"></p>
-<p>补充知识：map.has:用于查找数组中是否存在该数值</p>
-<p>map.get 返回一个<code>Map</code> 对象中与指定键相关联的值，如果找不到这个键则返回 <code>undefined</code>。<a target="_blank" rel="noopener" href="http://www.verydoc.net/javascript/00004753.html">map知识</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">var twoSum = function(nums, target) &#123;</span><br><span class="line"></span><br><span class="line">let map=new Map();</span><br><span class="line"></span><br><span class="line">for(let i=0;i&lt;nums.length;i++)&#123;</span><br><span class="line"></span><br><span class="line">  let k=target-nums[i];</span><br><span class="line"></span><br><span class="line">  if(map.has(k))&#123;</span><br><span class="line"></span><br><span class="line">  return [map.get(k),i];</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  map.set(nums[i],i);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">return [];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="三数之和"><a href="#三数之和" class="headerlink" title="三数之和"></a>三数之和</h4><p><img src="C:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211103190535020.png" alt="image-20211103190535020"></p>
-<p>思路一：</p>
-<p>学习两数之和的思路，遍历数组，选定nums[i]作为三数之和的第一个数 换成了在i+1到nums。length-1 中两数之和的问题</p>
-<p>缺点：有重复的三元组</p>
-<p><img src="C:/Users/zxy/AppData/Roaming/Typora/typora-user-images/image-20211103191019597.png" alt="image-20211103191019597"></p>
-<p>思路二：</p>
-<p>去除重复元组，使用排序去重</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">var threeSum = function(nums) &#123;</span><br><span class="line">let set=new Set();</span><br><span class="line">let result=[];</span><br><span class="line">nums.sort((a,b)=&gt;(a-b));//sort() 方法用于对数组的元素进行排序，并返回数组      升序排列</span><br><span class="line">for(let i=0;i&lt;nums.length-2;i++)&#123;</span><br><span class="line">    while (nums[i]===nums[i-1]) &#123;i++&#125; //去重</span><br><span class="line">    let first=nums[i];</span><br><span class="line">    let j=i+1</span><br><span class="line">    while(j&lt;nums.length)&#123;</span><br><span class="line">        let second=0-nums[j]-first;</span><br><span class="line">        let third=nums[j];</span><br><span class="line">        if(set.has(second))&#123;</span><br><span class="line">            result.push([first,second,third]);</span><br><span class="line">            set.add(third);</span><br><span class="line">            j++;</span><br><span class="line">            while(nums[j]===nums[j-1])&#123;j++&#125;;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            set.add(third)</span><br><span class="line">            j++</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    set=new Set();</span><br><span class="line">&#125;</span><br><span class="line">  return result;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>思路三：排序+双指针</p>
-<p>思路：数组排序，排序完遍历数组，nums[i]为第一个数 ，nums[i+1]第二个数，nums[nums.length-1]为第三个数 ，判断三数之和是否为0</p>
-<p>&lt;0 second 后移1位 反之 last往前一位 之和位0 进入结果进入数组中，并且second后移。last前移继续判断直至second &gt;=last 循环结束 ，此时， nums[i] 作为第⼀个数的所有满⾜条件的元组都已写⼊ 结果数组中了，继续遍历数组，直⾄ i === nums.length - 2 (后⾯需要有 second 、 last）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">var threeSum = function(nums) &#123;</span><br><span class="line">if(!nums || nums.length &lt;3) return [];</span><br><span class="line">let result =[],second,last</span><br><span class="line">//排序</span><br><span class="line">nums.sort((a,b)=&gt;(a-b))</span><br><span class="line">for(let i=0;i&lt;nums.length;i++)&#123;</span><br><span class="line">    if(nums[i]&gt;0)break</span><br><span class="line">    //去重</span><br><span class="line">     if(i&gt;0 &amp;&amp; nums[i]===nums[i-1]) continue</span><br><span class="line">     second=i+1;</span><br><span class="line">     last=nums.length-1</span><br><span class="line">     while(second &lt;last)&#123;</span><br><span class="line">         const sum=nums[i]+nums[second]+nums[last]</span><br><span class="line">         if(!sum)&#123;</span><br><span class="line">         //sum为0</span><br><span class="line">             result.push([nums[i],nums[second],nums[last]])</span><br><span class="line">             //去重</span><br><span class="line">             while(second&lt;last &amp;&amp; nums[second]===nums[second+1])</span><br><span class="line">             second++</span><br><span class="line">             while(second&lt;last &amp;&amp; nums[last]===nums[last-1])</span><br><span class="line">             last--</span><br><span class="line">             second++</span><br><span class="line">             last--</span><br><span class="line"></span><br><span class="line">         &#125;</span><br><span class="line">         else if(sum&lt;0) second++</span><br><span class="line">         else if(sum&gt;0) last --</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line">return result</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="手写数组去重，扁平化函数、排序"><a href="#手写数组去重，扁平化函数、排序" class="headerlink" title="手写数组去重，扁平化函数、排序"></a>手写数组去重，扁平化函数、排序</h4><p>知识点：arr.flat (infinifty) :</p>
-<p>数组扁平化：将数组中并不规则的多维数组去除维度，使之变为一维数组。</p>
-<p>参考：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat">flat</a></p>
-<p>reduce 方法：</p>
-<p>参考：    通过最后一次调用回调函数获得的累积结果。</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41702660/article/details/81949459">reduce</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/SimonITer/article/details/52013660">reduce方法</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let newArray = arr.flat(depth)</span><br><span class="line">depth指定要提取嵌套数组的结构深度，默认值为1。</span><br><span class="line">但使用 Infinity 作为深度，展开任意深度的嵌套数组</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//扁平化</span><br><span class="line">    const flattenDeep=(array)=&gt;array.flat(Infinity)</span><br><span class="line">    //去重</span><br><span class="line">    const unique=(array)=&gt;Array.from(new Set(array))</span><br><span class="line">    //排序</span><br><span class="line">    const sort =(array)=&gt;array.sort((a,b)=&gt; a-b)</span><br><span class="line">    // 函数组合</span><br><span class="line">    const compose=(...fns)=&gt;(initValue)=&gt; fns.reduceRight((y,fn)=&gt;fn(y),initValue)</span><br><span class="line">//    组合后函数</span><br><span class="line">const flatten_unique_sort=compose(sort,unique,flattenDeep)</span><br><span class="line">// 测试</span><br><span class="line">var arr= [ [1, 2, 2], [3, 4, 5, 5], [6, 7, 8, 9, [11, 12, [12, 13, [14] ]] ], 10]</span><br><span class="line">console.log(flatten_unique_sort(arr));</span><br></pre></td></tr></table></figure>
-
-<p>注意： flat() ⽅法对 node 版本有要求，⾄少需要 12.0 以上</p>
-<h3 id="携程-amp-蘑菇街-amp-bilibili：手写数组去重、扁平化函数"><a href="#携程-amp-蘑菇街-amp-bilibili：手写数组去重、扁平化函数" class="headerlink" title="携程&amp;蘑菇街&amp;bilibili：手写数组去重、扁平化函数"></a>携程&amp;蘑菇街&amp;bilibili：手写数组去重、扁平化函数</h3><p><a target="_blank" rel="noopener" href="https://github.com/sisterAn/JavaScript-Algorithms/issues/30">参考链接</a></p>
-<p>利用while循环结合some实现数组扁平，然后利用ES6 Set去重</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let arr = [[123,123,2,4,42,1,2,5], [5,8,6,54,3,9,9,3],0,7];</span><br><span class="line"></span><br><span class="line">while(arr.some(item =&gt; Array.isArray(item))) &#123;</span><br><span class="line"></span><br><span class="line">  arr = [].concat(...arr);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let setlist = new Set([...arr]);</span><br><span class="line"></span><br><span class="line">console.log([...setlist]); //[123, 2, 4, 42, 1, 5, 8, 6, 54, 3, 9, 0, 7]</span><br></pre></td></tr></table></figure>
-
-<h4 id="⼿写数组去重、扁平化函数"><a href="#⼿写数组去重、扁平化函数" class="headerlink" title="⼿写数组去重、扁平化函数"></a>⼿写数组去重、扁平化函数</h4><p>知识点：</p>
-<p>数组扁平化（又称数组降维）</p>
-<ol>
-<li>MDN： flat() ⽅法会按照⼀个可指定的深度递归遍历数组，并将所有元素与遍历到的⼦数 组中的元素合并为⼀个新数组返回</li>
-<li>Array.prototype.flat() 特性总结：</li>
-<li> Array.prototype.flat() ⽤于将嵌套的数组扁平化，变成⼀维的数组。该⽅法返回⼀个新 数组，对原数据没有影响。</li>
-<li> 不传参数时，默认扁平化⼀层，可以传⼊⼀个整数，表示想要扁平化的层数。</li>
-<li> 传⼊ &lt;=0 的整数将返回原数组，不扁平化</li>
-<li> Infinity 关键字作为参数时，⽆论多少层嵌套，都会转为⼀维数组 </li>
-<li>如果原数组有空位， Array.prototype.flat() 会跳过空位。</li>
-</ol>
-<p>使用reduce方法：</p>
-<p>栈</p>
-<p>数组去重方法：</p>
-<p>set</p>
-<p>reduce</p>
-<p>filter</p>
-<h4 id="编写⼀个函数计算多个数组的交集"><a href="#编写⼀个函数计算多个数组的交集" class="headerlink" title="编写⼀个函数计算多个数组的交集"></a>编写⼀个函数计算多个数组的交集</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const intersection =function(...args)&#123;</span><br><span class="line">          if(args.length ===0)&#123;</span><br><span class="line">              return [];</span><br><span class="line">          &#125;</span><br><span class="line">          if(args.length ===1)&#123;</span><br><span class="line">              return args[0];</span><br><span class="line">          &#125;</span><br><span class="line">          return [...new Set(args.reduce((result,arg)=&gt;&#123;</span><br><span class="line">              return result.filter(item=&gt;arg.includes(item))</span><br><span class="line">          &#125;))]</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<p>LUR算法：</p>
-<p>什么是缓存？</p>
-<p>浏览器缓存淘汰策略有哪一些？</p>
-<p>FIFO,LFU,LRU</p>
-<p>LUR：如果数据最近被访问，那么将来访问的几率更高，优先淘汰最近没有被访问的数据</p>
-<p>keep-alive：vue中实现组件的缓存，当组件切换时不会对当前组件进行卸载</p>
-<p>2.5.0版本中keep-alive 新增了max属性，用于最多缓存多少组件实例，一旦这个数字达到了，在新实例被创建之前，已缓存组件中最久没有被访问的实例会被销毁掉</p>
-<p>码源中使用缓存淘汰算法就是LRU算法，新增缓存实例会优先淘汰最近没有被访问的实例</p>
-<p>keep-alive实现思路：</p>
-<p>cache对象用于保存缓存的组件实例及key值，keys数组用于保存缓存组件的key，当keep-alive中熏染一个需要缓存的实例时：</p>
-<p>判断缓存中是否已缓存了该实例，缓存了则直接获取，并调整key在keys中的位置（移除keys中key，并放入keys数组的最后一位）</p>
-<p>如果没有缓存就缓存该实例，若keys长度大于max（超过上限）则移除keys【0】缓存</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 移除key</span><br><span class="line">function remove(arr,key)&#123;</span><br><span class="line">if(arr.length)&#123;</span><br><span class="line">    const index=arr.indexOf(key);//检索首次出现的位置</span><br><span class="line">    if(index&gt;-1)&#123;</span><br><span class="line">        return arr.splice(index,1)//删除</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2415,7 +2244,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

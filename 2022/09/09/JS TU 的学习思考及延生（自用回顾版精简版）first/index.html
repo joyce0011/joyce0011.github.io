@@ -20,19 +20,30 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="https:&#x2F;&#x2F;joyce0011.github.io&#x2F; 1.mac上搭建自己个人博客https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;0c545b6f601a 2.Mac上搭建基于GitHub的Hexo博客https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;13e64c9e2295 3.Hexo博客NexT主题从v5.x.x更新到v6.x.x的记录及总结https:&#x2F;&#x2F;sevencho.git">
+  <meta name="description" content="JS TU 的学习思考及延生（自用回顾版）1.关于number和string学习中number+string-&gt;string解决方式：parentInt来是的最终的变量 2.how many data types ?answer:7string,number,object,undefined,symbol,boolean,null 3.reference&amp;value的区别：perso">
 <meta property="og:type" content="article">
-<meta property="og:title" content="构建网站流程">
-<meta property="og:url" content="http://example.com/2021/09/13/%E6%9E%84%E5%BB%BA%E7%BD%91%E7%AB%99%E6%B5%81%E7%A8%8B/index.html">
+<meta property="og:title" content="JS TU 的学习思考及延生（自用回顾版）first 2022.9.9">
+<meta property="og:url" content="http://example.com/2022/09/09/JS%20TU%20%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%80%9D%E8%80%83%E5%8F%8A%E5%BB%B6%E7%94%9F%EF%BC%88%E8%87%AA%E7%94%A8%E5%9B%9E%E9%A1%BE%E7%89%88%E7%B2%BE%E7%AE%80%E7%89%88%EF%BC%89first/index.html">
 <meta property="og:site_name" content="乌冬面的日常">
-<meta property="og:description" content="https:&#x2F;&#x2F;joyce0011.github.io&#x2F; 1.mac上搭建自己个人博客https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;0c545b6f601a 2.Mac上搭建基于GitHub的Hexo博客https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;13e64c9e2295 3.Hexo博客NexT主题从v5.x.x更新到v6.x.x的记录及总结https:&#x2F;&#x2F;sevencho.git">
+<meta property="og:description" content="JS TU 的学习思考及延生（自用回顾版）1.关于number和string学习中number+string-&gt;string解决方式：parentInt来是的最终的变量 2.how many data types ?answer:7string,number,object,undefined,symbol,boolean,null 3.reference&amp;value的区别：perso">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-09-13T03:07:59.530Z">
-<meta property="article:modified_time" content="2021-03-03T10:32:28.000Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/849864dca8d04f08b2754ba0415f7753.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c5c2555c2de9425a8366ada72240e2a0.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/4332be835ff946bd814fee9cf447e528.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/5311c082a5974e909334ce13c1a8fc30.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/54e2ecb941c4450aada5efc684c818d0.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/465ff4df2e214014903c6cbf539cf66f.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/63ecfe7b5c6d41348db764f04e0cf801.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ed5e876af8a24b71b624d9a9ea17f152.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/d1207ccd5f7f4c8395450ac0f4331296.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/91d03ae43cca41348fe7b3b871c225ee.png">
+<meta property="article:published_time" content="2022-09-09T14:25:07.805Z">
+<meta property="article:modified_time" content="2022-09-09T14:26:27.490Z">
 <meta property="article:author" content="乌冬面">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/849864dca8d04f08b2754ba0415f7753.png">
 
-<link rel="canonical" href="http://example.com/2021/09/13/%E6%9E%84%E5%BB%BA%E7%BD%91%E7%AB%99%E6%B5%81%E7%A8%8B/">
+<link rel="canonical" href="http://example.com/2022/09/09/JS%20TU%20%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%80%9D%E8%80%83%E5%8F%8A%E5%BB%B6%E7%94%9F%EF%BC%88%E8%87%AA%E7%94%A8%E5%9B%9E%E9%A1%BE%E7%89%88%E7%B2%BE%E7%AE%80%E7%89%88%EF%BC%89first/">
 
 
 <script id="page-configurations">
@@ -45,7 +56,7 @@
   };
 </script>
 
-  <title>构建网站流程 | 乌冬面的日常</title>
+  <title>JS TU 的学习思考及延生（自用回顾版）first 2022.9.9 | 乌冬面的日常</title>
   
 
 
@@ -150,7 +161,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/13/%E6%9E%84%E5%BB%BA%E7%BD%91%E7%AB%99%E6%B5%81%E7%A8%8B/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/09/JS%20TU%20%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%80%9D%E8%80%83%E5%8F%8A%E5%BB%B6%E7%94%9F%EF%BC%88%E8%87%AA%E7%94%A8%E5%9B%9E%E9%A1%BE%E7%89%88%E7%B2%BE%E7%AE%80%E7%89%88%EF%BC%89first/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -163,7 +174,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          构建网站流程
+          JS TU 的学习思考及延生（自用回顾版）first 2022.9.9
         </h1>
 
         <div class="post-meta">
@@ -172,16 +183,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-09-13 11:07:59" itemprop="dateCreated datePublished" datetime="2021-09-13T11:07:59+08:00">2021-09-13</time>
+              <time title="创建时间：2022-09-09 22:25:07 / 修改时间：22:26:27" itemprop="dateCreated datePublished" datetime="2022-09-09T22:25:07+08:00">2022-09-09</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-03 18:32:28" itemprop="dateModified" datetime="2021-03-03T18:32:28+08:00">2021-03-03</time>
-              </span>
 
           
 
@@ -194,14 +199,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><a target="_blank" rel="noopener" href="https://joyce0011.github.io/">https://joyce0011.github.io/</a></p>
-<p>1.mac上搭建自己个人博客<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/0c545b6f601a">https://www.jianshu.com/p/0c545b6f601a</a></p>
-<p>2.Mac上搭建基于GitHub的Hexo博客<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/13e64c9e2295">https://www.jianshu.com/p/13e64c9e2295</a></p>
-<p>3.Hexo博客NexT主题从v5.x.x更新到v6.x.x的记录及总结<br><a target="_blank" rel="noopener" href="https://sevencho.github.io/archives/14534beb.html">https://sevencho.github.io/archives/14534beb.html</a></p>
-<p>4.Hexo+Github搭建个性化Blog<br><a target="_blank" rel="noopener" href="https://www.dazhuanlan.com/2019/10/04/5d9725ac1a26b/?__cf_chl_jschl_tk__=1549f5282b5cd7ba4e8802fa833f4dfb4d61f2bd-1614762555-0-AVSJd47-6pTr26Mqx88fqTUzKI1Tb2r5nIid0bIDzPyj5S9f40IQNYRUT3d0W8ZwKdc5emOZbJIg5-VaaKpGXcBe_r-y_qilDq99xD49Dao8JeY-b57sQNV-rF3EyP6QS99xvoIqSbde2UpvfEe0n0OAWS1PCSplbxlWtkdPqBUmZmvaIIdD0nZ5Ysy3bkVuY-4j2y78X1yabDNS-qm1M2bPJ0NDz6cRtwG0N5u9kvHdDYaz2uaKFatvtJaOe8Yvz7cpfJQ81gwigUQDdLYAbH4EVCP-s9iOSUVNlHsKYM7EKQEDT1Z78U-Vwtx5dS12fOhyAjI52mRlQP8AqLGQ4C4">https://www.dazhuanlan.com/2019/10/04/5d9725ac1a26b/?__cf_chl_jschl_tk__=1549f5282b5cd7ba4e8802fa833f4dfb4d61f2bd-1614762555-0-AVSJd47-6pTr26Mqx88fqTUzKI1Tb2r5nIid0bIDzPyj5S9f40IQNYRUT3d0W8ZwKdc5emOZbJIg5-VaaKpGXcBe_r-y_qilDq99xD49Dao8JeY-b57sQNV-rF3EyP6QS99xvoIqSbde2UpvfEe0n0OAWS1PCSplbxlWtkdPqBUmZmvaIIdD0nZ5Ysy3bkVuY-4j2y78X1yabDNS-qm1M2bPJ0NDz6cRtwG0N5u9kvHdDYaz2uaKFatvtJaOe8Yvz7cpfJQ81gwigUQDdLYAbH4EVCP-s9iOSUVNlHsKYM7EKQEDT1Z78U-Vwtx5dS12fOhyAjI52mRlQP8AqLGQ4C4</a></p>
-<p>5.使用GitHub+hexo搭建个人博客时遇到的一些问题汇总<br><a target="_blank" rel="noopener" href="https://bbs.huaweicloud.com/blogs/208275">https://bbs.huaweicloud.com/blogs/208275</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wj394/p/10256371.html">https://www.cnblogs.com/wj394/p/10256371.html</a></p>
-<p>6.MAC 终端命令 编辑保存<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ab68562d98ba">https://www.jianshu.com/p/ab68562d98ba</a></p>
-<p>7.如何发布文章到自己搭建的hexo博客上！<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42357048/article/details/80540728?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control&amp;dist_request_id=&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control">https://blog.csdn.net/weixin_42357048/article/details/80540728?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control&amp;dist_request_id=&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control</a></p>
+        <h2 id="JS-TU-的学习思考及延生（自用回顾版）"><a href="#JS-TU-的学习思考及延生（自用回顾版）" class="headerlink" title="JS TU 的学习思考及延生（自用回顾版）"></a>JS TU 的学习思考及延生（自用回顾版）</h2><p>1.关于number和string学习中<br>number+string-&gt;string<br><img src="https://img-blog.csdnimg.cn/849864dca8d04f08b2754ba0415f7753.png" alt="在这里插入图片描述"><br>解决方式：parentInt来是的最终的变量<br><img src="https://img-blog.csdnimg.cn/c5c2555c2de9425a8366ada72240e2a0.png" alt="在这里插入图片描述"></p>
+<p>2.how many data types ?<br>answer:7<br>string,number,object,undefined,symbol,boolean,null</p>
+<p>3.reference&amp;value的区别：<br><img src="https://img-blog.csdnimg.cn/4332be835ff946bd814fee9cf447e528.png" alt="在这里插入图片描述"><br>person2直接修改了object可以通过{…}的方式:just copy the values,not reference to a person job<br><img src="https://img-blog.csdnimg.cn/5311c082a5974e909334ce13c1a8fc30.png" alt="在这里插入图片描述"><br>3.Global scope VS Local scope<br>key:1.与C等语言不同js没有块级作用域的说法，if语句中出现的变量会填充到当前的执行环境中<br>2.如果不声明变量如var 操作，在function(){}中变量可以在外部访问出现如下图所示的情况</p>
+<p><img src="https://img-blog.csdnimg.cn/54e2ecb941c4450aada5efc684c818d0.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/465ff4df2e214014903c6cbf539cf66f.png" alt="在这里插入图片描述"><br>4.power array methods<br>foreach ：not return array<br>map：return new array ,not change size of origin array 很适用于HTMLelement:docment.body.innerHTML<br>filter:return new array ,base on condition<br>find:return single instance</p>
+<p>5.如何在{}添加内容<br><img src="https://img-blog.csdnimg.cn/63ecfe7b5c6d41348db764f04e0cf801.png" alt="在这里插入图片描述"><br>6.统计每个对象出现的相应所需属性的次数：reduce方法<br>主要注意要判别从无到有的过程<br><img src="https://img-blog.csdnimg.cn/ed5e876af8a24b71b624d9a9ea17f152.png" alt="在这里插入图片描述"><br><strong>DOM篇</strong></p>
+<p>1.getElementsByTagname()  &amp; querySelectorAll() 区别：<br>getElementsByTagname()：HTMLCollection[ , ]-&gt; array-like object<br>可以得到的：index,length property 不能：不能适用array method；<br>解决方法：可以使用[…items]来用array methods<br>querySelectorAll()：NodeList :objects are collections of nodes ,can run for foreach<br>2.nodeValue 和textContent 的区别：<br><a target="_blank" rel="noopener" href="http://cn.voidcc.com/question/p-hnnrsuzf-yw.html">参考这个</a><br><img src="https://img-blog.csdnimg.cn/d1207ccd5f7f4c8395450ac0f4331296.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/91d03ae43cca41348fe7b3b871c225ee.png" alt="在这里插入图片描述"></p>
+<p>3.className &amp; classList 区别：<br>calssName使用多次会产生：overwrite的后果，classList不会，可以动态的添加</p>
+<p>4.loadevent 和DOMContentLoaded区别：DOMContentLoaded立马执行不会等所有的资源都load，但是前者会等所有的资源都load了再执行</p>
 
     </div>
 
@@ -217,13 +222,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/09/13/hello-world/" rel="prev" title="Hello World">
-      <i class="fa fa-chevron-left"></i> Hello World
+    <a href="/2021/12/02/%E6%95%B0%E7%BB%84%E7%AC%94%E8%AE%B0%E4%BB%A3%E7%A0%81%E6%B1%87%E6%80%BB/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/09/21/%E4%BB%8E%E6%96%B0%E5%BC%80%E5%A7%8B%EF%BC%88%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%89/" rel="next" title="从新开始（前端学习记录）">
-      从新开始（前端学习记录） <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -282,6 +284,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JS-TU-%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%80%9D%E8%80%83%E5%8F%8A%E5%BB%B6%E7%94%9F%EF%BC%88%E8%87%AA%E7%94%A8%E5%9B%9E%E9%A1%BE%E7%89%88%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">JS TU 的学习思考及延生（自用回顾版）</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
